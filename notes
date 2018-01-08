@@ -1,0 +1,14 @@
+%% permet d'escape le % et donc de lafficher.
+
+Flag "#" : Utiliser la forme alternative.
+	Avec le convert %o/%O Le premier char de la chaine est 0.
+	Avec le convert %x/%X la chaine commence par 0x/0X
+
+Flag "0" : Avec un convertion numerique, rempli le nombre de 0 a gauche suivant le nombre de digit manquant
+		 : Il peut etre utilise en combinaison avec #
+
+Convertion "o"/"O" : converti un unsigned int en unsigned octal
+Convertion "x"/"X" : converti un unsigned int en en unsigned hexa (x : abcdef | X : ABCDEF)
+Convertion "d", "i" : converti un int en decimal avec signe, la precision donne le nombre de digit qui doivent apparaitre
+					 Si la valeur converti necessite plus de digit elle est rempli avec des 0 a gauche.
+Convertion "u"		: Converti unsigned int en unsigned decimal.
