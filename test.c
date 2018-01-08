@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 09:26:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/08 14:27:01 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/08 16:28:16 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		main(void)
 {
 	printf("FLAG %%\n");
 	printf("%% = |%%|\n");
+
+	// ################ FLAG "#" ##########################
 	printf("\nFLAG %%# avec %%o\n");
 	printf("%%o = |%o|\n", 8);
 	printf("%%#o = |%#o|\n", 8);
@@ -29,7 +31,6 @@ int		main(void)
 	printf("%%#o = |%#o|\n", -14);
 	printf("%%O = |%O|\n", -14);
 	printf("%%#O = |%#O|\n", -14);
-
 
 	printf("\nFLAG %%# avec %%x\n");
 	printf("%%x = |%x|\n", 21);
@@ -45,6 +46,7 @@ int		main(void)
 	printf("%%X = |%x|\n", -14);
 	printf("%%#X = |%#x|\n", -14);
 
+// ################ FLAG "0" ##########################
 	printf("\nFLAG %%0X avec %%d\n");
 	printf("%%d = |%d|\n", 1894);
 	printf("%%08d = |%08d|\n", 1894);
@@ -81,10 +83,107 @@ int		main(void)
 	printf("%%#x = |%#x|\n", 914);
 	printf("%%#07x = |%#07x|\n", 914);
 
-	printf("\nFLAG %%0X avec %%d\n");
-	printf("%%-d = |%-d|\n", 1894);
+	printf("\nFLAG %%-0X avec %%d\n");
+	printf("%%-d = |%-8d|\n", 1894);
 	printf("%%-08d = |%-08d|\n", 1894);
-	printf("%%-d = |-%d|\n", -1894);
+	printf("%%-d = |%-8d|\n", -1894);
 	printf("%%-08d = |%-08d|\n", -1894);
+
+// ################ FLAG "-" ##########################
+
+	printf("\nFLAG %%-X avec %%d\n");
+	printf("%%d = |%d|\n", 1894);
+	printf("%%-5d = |%-5d|\n", 1894);
+	printf("%%d = |%d|\n", -1894);
+	printf("%%-10d = |%-10d|\n", -1894);
+
+	printf("\nFLAG %%-X avec %%i\n");
+	printf("%%i = |%i|\n", 1894);
+	printf("%%-5i = |%-5i|\n", 1894);
+	printf("%%i = |%d|\n", -1894);
+	printf("%%-10i = |%-10i|\n", -1894);
+
+	printf("\nFLAG %%-X avec %%o\n");
+	printf("%%o = |%o|\n", 14);
+	printf("%%-8o = |%-8o|\n", 14);
+	printf("%%o = |%o|\n", -14);
+	printf("%%-8o = |%-8o|\n", -14);
+
+	printf("\nFLAG %%-X avec %%u\n");
+	printf("%%u = |%u|\n", 14);
+	printf("%%-7u = |%-7u|\n", 14);
+	printf("%%u = |%u|\n", -14);
+	printf("%%-7u = |%-7u|\n", -14);
+	printf("%%u = |%u|\n", 914);
+	printf("%%-7u = |%-7u|\n", 914);
+
+	printf("\nFLAG %%-X avec %%x\n");
+	printf("%%x = |%x|\n", 43);
+	printf("%%-7x = |%-7x|\n", 43);
+	printf("%%x = |%x|\n", 914);
+	printf("%%-7x = |%-7x|\n", 914);
+
+	printf("\nFLAG %%-X avec %%s\n");
+	printf("%%s = |%s|\n", "yo");
+	printf("%%-7s = |%-7s|\n", "yo");
+	printf("%%s = |%s|\n", "yoo");
+	printf("%%-7s = |%-7s|\n", "yoo");
+
+// ################ FLAG " " & "+" ##########################
+	printf("\nFLAG %%_ (space) avec %% d\n");
+	printf("%% d = |% d|\n", 1894);
+	printf("%% d = |% d|\n", 1894);
+	printf("%% d = |% d|\n", -1894);
+	printf("%% d = |% d|\n", -1894);
+
+	printf("\nFLAG %%_ (space)avec %% i\n");
+	printf("%% i = |% i|\n", 1894);
+	printf("%% i = |% i|\n", 1894);
+	printf("%% i = |% i|\n", -1894);
+	printf("%% i = |% i|\n", -1894);
+
+	printf("\nFLAG %%+ avec %%+d\n");
+	printf("%%+d = |%+d|\n", 1894);
+	printf("%%+d = |%+d|\n", 1894);
+	printf("%%+d = |%+d|\n", -1894);
+	printf("%%+d = |%+d|\n", -1894);
+
+	printf("\nFLAG %%+ avec %%+i\n");
+	printf("%%+i = |%+i|\n", 1894);
+	printf("%%+i = |%+i|\n", 1894);
+	printf("%%+i = |%+i|\n", -1894);
+	printf("%%+i = |%+i|\n", -1894);
+
+	printf("\nFLAG %%+ avec %%+o\n");
+	printf("%%+d = |%+o|\n", 1894);
+	printf("%%+d = |%+o|\n", 1894);
+
+	printf("\nFLAG %%+ avec %%+u\n");
+	printf("%%+u = |%+u|\n", 1894);
+	printf("%%+u = |%+u|\n", 1894);
+
+	printf("\nFLAG %%+ avec %%+x\n");
+	printf("%%+x = |%+x|\n", 1894);
+	printf("%%+x = |%+x|\n", 1894);
+
+// ################ PRECISION ##########################
+	printf("\nTEST PRECISIOn \n");
+	printf("%% d = |%d|\n", 10000);
+	printf("%%.4d = |%.4d|\n", 10000);
+	printf("%% d = |%d|\n", -10000);
+	printf("%%.4d = |%.4d|\n", -10000);
+	printf("%% d = |%d|\n", 100);
+	printf("%%.4d = |%.4d|\n", 100);
+	printf("%% d = |%d|\n", -100);
+	printf("%%.4d = |%.4d|\n", -100);
+
+	printf("%% i = |%i|\n", 10000);
+	printf("%%.4i = |%.4i|\n", 10000);
+	printf("%%i = |%i|\n", -10000);
+	printf("%%.4i = |%.4i|\n", -10000);
+	printf("%%i = |%i|\n", 100);
+	printf("%%.4i = |%.4i|\n", 100);
+	printf("%%i = |%i|\n", -100);
+	printf("%%.4i = |%.4i|\n", -100);
 	return (0);
 }

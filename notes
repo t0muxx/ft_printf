@@ -4,8 +4,20 @@ Flag "#" : Utiliser la forme alternative.
 	Avec le convert %o/%O Le premier char de la chaine est 0.
 	Avec le convert %x/%X la chaine commence par 0x/0X
 
-Flag "0" : Avec un convertion numerique, rempli le nombre de 0 a gauche suivant le nombre de digit manquant
+Flag "0X" : Avec un convertion numerique, rempli le nombre de 0 a gauche suivant le nombre de digit manquant
 		 : Il peut etre utilise en combinaison avec #
+
+Flag "-X" : Ecris le nombre sur X digit et ajoute des espace a gauche si besoin.
+
+Cest flag vont avec la taille minimal de champp qui peut etre preciser de cette maniere :
+	%tailleminimaldechampX. il ajoutera tailleminimaldechamp nombre despace
+
+Flag " " (espace) : Laisse un espace pour les nombre positif et affiche le - pour les negatifs.
+
+Flag "+" : force le signe "+" pour les nombre positif
+
+La precision ".X" : Pour les conversion de entier, indique le nombre minimum de chiffre a faire apparaitre.
+Pour un conversion "%s"/"%S" : le nombre maximum de char a afficher.
 
 Convertion "o"/"O" : converti un unsigned int en unsigned octal
 Convertion "x"/"X" : converti un unsigned int en en unsigned hexa (x : abcdef | X : ABCDEF)
