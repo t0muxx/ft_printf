@@ -6,14 +6,16 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 09:26:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/08 16:28:16 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/09 14:42:54 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <wchar.h>
 
 int		main(void)
 {
+	/*
 	printf("FLAG %%\n");
 	printf("%% = |%%|\n");
 
@@ -49,9 +51,9 @@ int		main(void)
 // ################ FLAG "0" ##########################
 	printf("\nFLAG %%0X avec %%d\n");
 	printf("%%d = |%d|\n", 1894);
-	printf("%%08d = |%08d|\n", 1894);
+	printf("%%0d = |%*d|\n", 1894);
 	printf("%%d = |%d|\n", -1894);
-	printf("%%08d = |%08d|\n", -1894);
+	printf("%%0d = |%0-9d|\n", -1894);
 
 	printf("\nFLAG %%0X avec %%i\n");
 	printf("%%i = |%i|\n", 14);
@@ -88,7 +90,7 @@ int		main(void)
 	printf("%%-08d = |%-08d|\n", 1894);
 	printf("%%-d = |%-8d|\n", -1894);
 	printf("%%-08d = |%-08d|\n", -1894);
-
+*/
 // ################ FLAG "-" ##########################
 
 	printf("\nFLAG %%-X avec %%d\n");
@@ -127,8 +129,8 @@ int		main(void)
 	printf("%%s = |%s|\n", "yo");
 	printf("%%-7s = |%-7s|\n", "yo");
 	printf("%%s = |%s|\n", "yoo");
-	printf("%%-7s = |%-7s|\n", "yoo");
-
+	printf("%%-7s = |%%%%|\n", "yoo");
+/*
 // ################ FLAG " " & "+" ##########################
 	printf("\nFLAG %%_ (space) avec %% d\n");
 	printf("%% d = |% d|\n", 1894);
@@ -168,16 +170,16 @@ int		main(void)
 
 // ################ PRECISION ##########################
 	printf("\nTEST PRECISIOn \n");
-	printf("%% d = |%d|\n", 10000);
+	printf("%%d = |%d|\n", 10000);
 	printf("%%.4d = |%.4d|\n", 10000);
-	printf("%% d = |%d|\n", -10000);
+	printf("%%d = |%d|\n", -10000);
 	printf("%%.4d = |%.4d|\n", -10000);
-	printf("%% d = |%d|\n", 100);
+	printf("%%d = |%d|\n", 100);
 	printf("%%.4d = |%.4d|\n", 100);
-	printf("%% d = |%d|\n", -100);
+	printf("%%d = |%d|\n", -100);
 	printf("%%.4d = |%.4d|\n", -100);
 
-	printf("%% i = |%i|\n", 10000);
+	printf("%%i = |%i|\n", 10000);
 	printf("%%.4i = |%.4i|\n", 10000);
 	printf("%%i = |%i|\n", -10000);
 	printf("%%.4i = |%.4i|\n", -10000);
@@ -185,5 +187,47 @@ int		main(void)
 	printf("%%.4i = |%.4i|\n", 100);
 	printf("%%i = |%i|\n", -100);
 	printf("%%.4i = |%.4i|\n", -100);
+
+	wchar_t texte[50] = L"Salut Gerard !\0";
+
+	printf("%%s = |%s|\n", "ceci est un test");
+	printf("%%.4s = |%.4s|\n", "ceci est un test");
+	printf("%%S = |%S|\n", texte);
+	printf("%%S = |%.4S|\n", texte);
+
+// ################ FLAG "hh" ##########################
+	int a = 165;
+
+	printf("\nTEST FLAG hh \n");
+	printf("%%d = |%d|\n", a);
+	printf("%%hhd = |%hhd|\n", a);
+
+// ################ FLAG "h" ##########################
+	a = 38767;
+
+	printf("\nTEST FLAG h \n");
+	printf("%%d = |%d|\n", a);
+	printf("%%hd = |%hd|\n", a);
+
+// ################ FLAG "l" ##########################
+	printf("\nTEST FLAG l \n");
+	printf("%%d = |%d|\n", a);
+	printf("%%hd = |%ld|\n", a);
+
+// ################ FLAG "ll" ##########################
+	printf("\nTEST FLAG ll \n");
+	printf("%%d = |%d|\n", a);
+	printf("%%hd = |%lld|\n", a);
+
+// ################ FLAG "ll" ##########################
+	printf("\nTEST FLAG ll \n");
+	printf("%%d = |%d|\n", 2147483649);
+	printf("%%hd = |%jd|\n", 2147483649);
+
+	printf("|%#*d|\n", 5 , 15);
+	printf("|%2$*1$d|\n", 5 , 15);
+	printf("|%*d||%*d|\n", 5 , 15, 6, 19);
+	printf("|%10$*1$d|\n", 5 , 15, 16, 1, 1, 1, 1, 1, 1);
+	*/
 	return (0);
 }
