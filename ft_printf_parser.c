@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/09 17:35:33 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/09 20:32:14 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,26 @@ int		ft_parser(t_parsed_opt *opt, char **format)
 	{
 		nbr = ft_parser_read_int_upd_str(format);
 		if (**format == '$')
+		{
 			opt->in_argnbr = nbr;
+			(*format)++;
+		}
 		else
 			format = begin;
 	}
-	printf("|%c|\n", **format);
-	while (**format)
+//	printf("\n|%c|\n", **format);
+	while (ft_strchr(AVAILABLE_FLAG, **format) && **format)
 	{
 		if (**format == '#')
 			opt->bin_flag |= FLG_SHARP;
-		else if (**format == '0')
+		if (**format == '0')
 			opt->bin_flag |= FLG_ZERO;
-		else if (**format == '-')
+		if (**format == '-')
 			opt->bin_flag |= FLG_MINUS;
-		else if (**format == ' ')
+		if (**format == ' ')
 			opt->bin_flag |= FLG_SP;
-		else if (**format == '+')
+		if (**format == '+')
 			opt->bin_flag |= FLG_PLUS;
-		else
-			return(0);
 		(*format)++;
 	}
 	opt = opt;

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/09 16:53:48 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/09 19:44:47 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 # define TRUE 1
 # define FALSE 0
+
+# define AVAILABLE_FLAG "#0- +"
 
 # define FLG_SHARP 1
 # define FLG_ZERO 2
@@ -43,4 +45,5 @@ void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt);
 int		ft_parser(t_parsed_opt *opt, char **format);
 int		ft_parser_managepercent(char **format);
 int		ft_parser_read_int_upd_str(char **format);
+void	ft_printf_print_opt(t_parsed_opt opt);
 #endif

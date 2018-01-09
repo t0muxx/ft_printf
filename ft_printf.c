@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:57:07 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/09 17:35:32 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/09 19:53:53 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int 	ft_printf(const char *format, ...)
 		{
 			ft_parser_init_t_parsed_opt(&opt);
 			ret = ret + ft_parser(&opt, &p_format);
+			ft_printf_print_opt(opt);
 		}
 		else
 		{
@@ -38,26 +39,6 @@ int 	ft_printf(const char *format, ...)
 
 	}
 	va_end(arg);
-	if (opt.bin_flag & FLG_SHARP)
-	{
-		printf("\nflag # trouve\n");
-	}
-	if (opt.bin_flag & FLG_ZERO)
-	{
-		printf("\nflag 0 trouve\n");
-	}
-	if (opt.bin_flag & FLG_MINUS)
-	{
-		printf("\nflag - trouve\n");
-	}
-	if (opt.bin_flag & FLG_SP)
-	{
-		printf("\nflag   trouve\n");
-	}
-	if (opt.bin_flag & FLG_PLUS)
-	{
-		printf("\nflag + trouve\n");
-	}
 	return (ret);
 }
 
@@ -65,7 +46,6 @@ int		main(void)
 {
 	int ret;
 
-	ret = ft_printf("test%test%#\n");
-	printf("%0+9d", 10);
+	ret = ft_printf("test%test%2$#+0 -d\n");
 	return (ret);
 }
