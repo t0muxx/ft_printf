@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/09 19:44:47 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/09 21:52:55 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt);
 int		ft_parser(t_parsed_opt *opt, char **format);
 int		ft_parser_managepercent(char **format);
 int		ft_parser_read_int_upd_str(char **format);
+void	ft_parser_manage_argnbr(char **format, char **begin, t_parsed_opt *opt);
+void	ft_parser_manage_flag(char **format, t_parsed_opt *opt);
+
 void	ft_printf_print_opt(t_parsed_opt opt);
 #endif
