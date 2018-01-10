@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/10 17:24:07 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/10 21:15:16 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,22 @@ int		ft_parser_manage_lenmod(char **format, t_parsed_opt *opt)
 	return (0);
 }
 
-int		ft_parser(t_parsed_opt *opt, char **format, va_list arg, va_list arg_start)
+int		ft_parser(t_parsed_opt *opt, char **format,
+va_list curr_arg, va_list start_arg)
 {
-	char	**begin;
+	char	*begin;
 
-	begin = format;
+	begin = *format;
 	if (ft_parser_managepercent(format) == 1)
 		return (1);
 	(*format)++;
+	begin = *format;
+//	printf("\n++++|%c|+++++ %d %s\n", *begin, __LINE__, __FILE__);
 	ft_parser_manage_argnbr(format, begin, opt);
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_flag(format, opt);
-	ft_parser_manage_width(format, opt, arg, arg_start);
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
+	ft_parser_manage_width(format, opt, curr_arg, start_arg);
 	ft_parser_manage_prec(format, opt);
 	ft_parser_manage_lenmod(format, opt);
 	if (ft_strchr(AVAILABLE_CONV, **format))
@@ -82,6 +87,6 @@ int		ft_parser(t_parsed_opt *opt, char **format, va_list arg, va_list arg_start)
 	}
 	else
 		opt->ch_convert = -1;
-	va_copy(arg_start, arg);
+	va_arg(curr_arg, int);
 	return (0);
 }

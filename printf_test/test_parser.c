@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:24:09 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/10 16:35:32 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/10 20:46:53 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ void	test_fuzz_opt(int looptime)
 {
 	char str[1000];
 	char *opt;
-	int i;
 	int j;
 
-	i = 0;
 	j = 0;
 	opt = ft_memalloc(6);
 	ft_bzero(opt, 6);

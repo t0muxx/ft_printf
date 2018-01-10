@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:27:58 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/10 17:26:41 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/10 21:22:38 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		ft_parser_read_int_upd_str(char **format)
 	return (ret);
 }
 
-void	ft_parser_manage_argnbr(char **format, char **begin, t_parsed_opt *opt)
+void	ft_parser_manage_argnbr(char **format, char *begin, t_parsed_opt *opt)
 {
 	int nbr;
 
@@ -77,7 +77,9 @@ void	ft_parser_manage_argnbr(char **format, char **begin, t_parsed_opt *opt)
 //			printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 		}
 		else
-			format = begin;
+			*format = begin;
+//		printf("\n++++|%c|+++++ %d %s\n", *begin, __LINE__, __FILE__);
+//		printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	}
 }
 
@@ -94,32 +96,37 @@ void	ft_parser_manage_flag(char **format, t_parsed_opt *opt)
 	}
 }
 
-void	ft_parser_manage_width(char **format, t_parsed_opt *opt, va_list arg, va_list arg_start)
+void	ft_parser_manage_width(char **format, t_parsed_opt *opt,
+va_list curr_arg, va_list start_arg)
 {
 	int nbr;
 
 	nbr = 0;
+	// Gestion du flag * et & //////////////////////////////
 	if (**format == '*')
 	{
 		(*format)++;
 		if (ft_isdigit(**format))
 		{
 			nbr = ft_parser_read_int_upd_str(format);
+			//printf("\n++++|%d|+++++ %d %s\n", nbr, __LINE__, __FILE__);
 			if (**format == '$')
 			{
 				(*format)++;
-				while (nbr > -1)
+				while (nbr > 0)
 				{
-					opt->in_width = va_arg(arg_start, int);
+				//	printf("\n++++|%d|+++++ %d %s\n", nbr, __LINE__, __FILE__);
+					opt->in_width = va_arg(start_arg, int);
 					nbr--;
 				}
 			}
 		}
 		else
-			opt->in_width = va_arg(arg, int);
+			opt->in_width = va_arg(curr_arg, int);
 	}
 	else
 	{
+		// ///////////////// //////////////////////////////
 		if (ft_isdigit(**format))
 		{
 			nbr = ft_parser_read_int_upd_str(format);
