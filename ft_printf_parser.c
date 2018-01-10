@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/09 21:53:10 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/10 17:24:07 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,52 @@ void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt)
 	opt->bin_flag = 0;
 	opt->in_width = 0;
 	opt->in_precision = 0;
-	opt->pch_lengthmod[0] = 0;
-	opt->pch_lengthmod[1] = 0;
-	opt->pch_lengthmod[2] = 0;
+	opt->bin_lenmod = 0;
 	opt->ch_convert = 0;
 	opt->in_argnbr = 0;
 }
 
-int		ft_parser(t_parsed_opt *opt, char **format)
+void	ft_parser_manage_prec(char **format, t_parsed_opt *opt)
+{
+	int nbr;
+
+	nbr = 0;
+	if (**format == '.')
+	{
+		(*format)++;
+		nbr = ft_parser_read_int_upd_str(format);
+		opt->in_precision = nbr;
+	}
+}
+
+int		ft_parser_manage_lenmod(char **format, t_parsed_opt *opt)
+{
+	while (**format && ft_strchr(AVAILABLE_LENMOD, **format))
+	{
+		if (**format == 'h')
+		{
+			if (opt->bin_lenmod & LENMOD_H)
+				opt->bin_lenmod = LENMOD_HH;
+			else
+				opt->bin_lenmod = LENMOD_H;
+		}
+		if (**format == 'l')
+		{
+			if (opt->bin_lenmod & LENMOD_L)
+				opt->bin_lenmod = LENMOD_LL;
+			else
+				opt->bin_lenmod = LENMOD_L;
+		}
+		if (**format == 'j')
+			opt->bin_lenmod = LENMOD_J;
+		if (**format == 'z')
+			opt->bin_lenmod = LENMOD_Z;
+		(*format)++;
+	}
+	return (0);
+}
+
+int		ft_parser(t_parsed_opt *opt, char **format, va_list arg, va_list arg_start)
 {
 	char	**begin;
 
@@ -33,8 +71,17 @@ int		ft_parser(t_parsed_opt *opt, char **format)
 		return (1);
 	(*format)++;
 	ft_parser_manage_argnbr(format, begin, opt);
-//	printf("\n|%c|\n", **format);
 	ft_parser_manage_flag(format, opt);
-	opt = opt;
+	ft_parser_manage_width(format, opt, arg, arg_start);
+	ft_parser_manage_prec(format, opt);
+	ft_parser_manage_lenmod(format, opt);
+	if (ft_strchr(AVAILABLE_CONV, **format))
+	{
+		opt->ch_convert = **format;
+		(*format)++;
+	}
+	else
+		opt->ch_convert = -1;
+	va_copy(arg_start, arg);
 	return (0);
 }
