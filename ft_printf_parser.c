@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/10 21:15:16 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/11 15:08:35 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,21 @@ void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt)
 	opt->bin_lenmod = 0;
 	opt->ch_convert = 0;
 	opt->in_argnbr = 0;
+	opt->in_base = 0;
 }
 
+void	ft_parser_manage_base(t_parsed_opt *opt)
+{
+	opt->in_base = 0;
+	opt->in_base = opt->ch_convert == 'd' ? 10 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'i' ? 10 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'u' ? 10 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'p' ? 16 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'o' ? 8 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'O' ? 8 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'x' ? 8 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'X' ? 16 : opt->in_base;
+}
 void	ft_parser_manage_prec(char **format, t_parsed_opt *opt)
 {
 	int nbr;
@@ -77,7 +90,7 @@ va_list curr_arg, va_list start_arg)
 //	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_flag(format, opt);
 //	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
-	ft_parser_manage_width(format, opt, curr_arg, start_arg);
+	ft_parser_manage_width(format, opt);
 	ft_parser_manage_prec(format, opt);
 	ft_parser_manage_lenmod(format, opt);
 	if (ft_strchr(AVAILABLE_CONV, **format))
@@ -87,6 +100,9 @@ va_list curr_arg, va_list start_arg)
 	}
 	else
 		opt->ch_convert = -1;
-	va_arg(curr_arg, int);
+	ft_parser_manage_base(opt);
+	ft_conv(opt, curr_arg);
+	if (start_arg)
+		;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:27:58 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/10 21:22:38 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/11 09:53:00 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,7 @@ void	ft_parser_manage_flag(char **format, t_parsed_opt *opt)
 	}
 }
 
-void	ft_parser_manage_width(char **format, t_parsed_opt *opt,
-va_list curr_arg, va_list start_arg)
+void	ft_parser_manage_width(char **format, t_parsed_opt *opt)
 {
 	int nbr;
 
@@ -116,13 +115,13 @@ va_list curr_arg, va_list start_arg)
 				while (nbr > 0)
 				{
 				//	printf("\n++++|%d|+++++ %d %s\n", nbr, __LINE__, __FILE__);
-					opt->in_width = va_arg(start_arg, int);
+					opt->in_width = 0;
 					nbr--;
 				}
 			}
 		}
 		else
-			opt->in_width = va_arg(curr_arg, int);
+			opt->in_width = 0;
 	}
 	else
 	{

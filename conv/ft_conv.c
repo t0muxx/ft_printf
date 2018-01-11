@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   ft_conv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/11 10:21:54 by tmaraval         ###   ########.fr       */
+/*   Created: 2018/01/11 10:29:20 by tmaraval          #+#    #+#             */
+/*   Updated: 2018/01/11 15:12:04 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf_test.h"
-/*
-int	main(void)
-{
+#include "../ft_printf.h"
 
-	test_fuzz_opt(100);
-	test_fuzz_opt(200);
-	test_fuzz_opt(300);
-	test_fuzz_opt(400);
-	test_fuzz_opt(500);
-	test_fuzz_opt(600);
-	test_fuzz_opt(700);
-	test_fuzz_opt(800);
-	test_fuzz_opt(900);
-	test_big_width_prec_argnbr();
-	test_conv();
-	return (0);
+int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
+{
+	int ret;
+
+	ret = 0;
+	if (ft_strchr("oOxXdup", opt->ch_convert))
+		ret = ft_conv_integer(opt, curr_arg);
+
+	return (ret);
 }
-*/

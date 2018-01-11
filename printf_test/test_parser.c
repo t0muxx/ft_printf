@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:24:09 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/10 20:46:53 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/11 10:10:57 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,52 @@
 #include "printf_test.h"
 
 int 	ft_printf(const char *format, ...);
+
+void	test_conv_init_str(char *str)
+{
+	char *flag = AVAILABLE_FLAG;
+	char *lenmod = AVAILABLE_LENMOD;
+	int random_flg;
+	int random_lenmod;
+	int	random_width;
+	int random_prec;
+
+	ft_bzero(str, 1000);
+	ft_strcpy(str, "%");
+	srand(time(NULL));
+	random_flg = rand()%4+0;
+	random_lenmod = rand()%3+0;
+	random_width = rand()%100+2;
+	random_prec = rand()%100+2;
+	ft_strncat(str, flag + random_flg, 1);
+	ft_strcat(str, ft_itoa_base(random_width, 10));
+	ft_strcat(str, ".");
+	ft_strcat(str, ft_itoa_base(random_prec, 10));
+	ft_strncat(str, lenmod + random_lenmod, 1);
+}
+
+void	test_conv()
+{
+	char str[1000];
+	int i = 0;
+	int j = 10;
+
+	char *converter = AVAILABLE_CONV;
+	while (j > 0)
+	{
+		i = 0;
+		while (converter[i])
+		{
+			test_conv_init_str(str);
+			ft_strncat(str, converter + i, 1);
+			i++;
+			ft_putendl(str);
+			ft_printf(str);
+			sleep(1);
+		}
+		j--;
+	}
+}
 
 void	test_big_width_prec_argnbr()
 {

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 09:26:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/09 14:42:54 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/11 08:43:29 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		main(void)
 */
 // ################ FLAG "-" ##########################
 
-	printf("\nFLAG %%-X avec %%d\n");
+/*	printf("\nFLAG %%-X avec %%d\n");
 	printf("%%d = |%d|\n", 1894);
 	printf("%%-5d = |%-5d|\n", 1894);
 	printf("%%d = |%d|\n", -1894);
@@ -130,6 +130,7 @@ int		main(void)
 	printf("%%-7s = |%-7s|\n", "yo");
 	printf("%%s = |%s|\n", "yoo");
 	printf("%%-7s = |%%%%|\n", "yoo");
+	*/
 /*
 // ################ FLAG " " & "+" ##########################
 	printf("\nFLAG %%_ (space) avec %% d\n");
@@ -229,5 +230,14 @@ int		main(void)
 	printf("|%*d||%*d|\n", 5 , 15, 6, 19);
 	printf("|%10$*1$d|\n", 5 , 15, 16, 1, 1, 1, 1, 1, 1);
 	*/
+	int i = 12345;
+	char a;
+
+	a = (char)i;
+	printf("|%d|\n", 12345 , 15);
+	printf("|%# 7hhx|\n", 12345 , 15);
+	printf("|%x|\n", a , 15);
+	printf("|%7.6d|\n", 12345 , 15);
+	printf("|%2.5d|\n", 12345 , 15);
 	return (0);
 }

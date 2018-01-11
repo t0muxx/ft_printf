@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:31:40 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/10 16:26:48 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/11 15:12:21 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_printf_print_opt(t_parsed_opt opt)
 	printf("in_width : |%d|\n", opt.in_width);
 	printf("in_precision : |%d|\n", opt.in_precision);
 	printf("ch_convert : |%c|\n", opt.ch_convert);
+	printf("opt->str_arg : |%s|\n", opt.str_arg);
+	printf("opt->in_base : |%d|\n", opt.in_base);
 	if (opt.bin_flag & FLG_SHARP)
 	{
 		printf("flag # trouve\n");

@@ -64,3 +64,9 @@ On check les flag -> Si ce sont des flag avec 0/- attention il faut regarder la
 valeur dapres pour avoir le nombre de digit sur lequel l'ecrire
 Si on trouve un '.' -> on soccupe de la precision. On lit juska que ce soir de nouveux des lettres
 On gere les modificateur, et ensuite le specificateur.
+
+CONVERTION :
+On check les flag et on ajoute aux temp le suffixe
+On fait un itoa_base.
+On calcule la precision du nombre et la taille du nombre.
+	Si tailledunombre < precision on ajoute des 0.
