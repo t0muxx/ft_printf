@@ -6,30 +6,64 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:22:35 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/11 16:31:18 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/12 12:50:28 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_conv_int_arg_wlenmod(t_parsed_opt *opt, char **temp, va_list curr_arg)
+int		ft_conv_int_arg_wlenmod(t_parsed_opt *opt, va_list curr_arg)
 {
-	*temp = *temp;
-	va_copy(curr_arg, curr_arg);
+
 	if (opt->bin_lenmod & LENMOD_H)
 	{
 		if (ft_strchr("di", opt->ch_convert))
-			opt->str_arg = ft_lltoa_base((long long)(short int)va_arg(curr_arg, int), opt->in_base);
+			opt->str_arg = ft_lltoa_base((short int)va_arg(curr_arg, int), opt->in_base);
 		else
-			opt->str_arg = ft_ulltoa_base((unsigned long long)(unsigned short int)va_arg(curr_arg, int), opt->in_base);
+			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, int), opt->in_base);
+	}
+	if (opt->bin_lenmod & LENMOD_HH)
+	{
+		if (ft_strchr("di", opt->ch_convert))
+			opt->str_arg = ft_lltoa_base((char)va_arg(curr_arg, int), opt->in_base);
+		else
+			opt->str_arg = ft_ulltoa_base((unsigned char)va_arg(curr_arg, int), opt->in_base);
+	}
+	if (opt->bin_lenmod & LENMOD_L)
+	{
+		if (ft_strchr("di", opt->ch_convert))
+			opt->str_arg = ft_lltoa_base((long int)va_arg(curr_arg, long), opt->in_base);
+		else
+			opt->str_arg = ft_ulltoa_base((unsigned long int)va_arg(curr_arg, int), opt->in_base);
+	}
+	if (opt->bin_lenmod & LENMOD_LL)
+	{
+		if (ft_strchr("di", opt->ch_convert))
+			opt->str_arg = ft_lltoa_base((long long)va_arg(curr_arg, long long), opt->in_base);
+		else
+			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned long long), opt->in_base);
+	}
+	if (opt->bin_lenmod & LENMOD_J)
+	{
+		if (ft_strchr("di", opt->ch_convert))
+			opt->str_arg = ft_lltoa_base((intmax_t)va_arg(curr_arg, intmax_t), opt->in_base);
+		else
+			opt->str_arg = ft_ulltoa_base((uintmax_t)va_arg(curr_arg, uintmax_t), opt->in_base);
+	}
+	if (opt->bin_lenmod & LENMOD_Z)
+	{
+		if (ft_strchr("di", opt->ch_convert))
+			opt->str_arg = ft_lltoa_base((size_t)va_arg(curr_arg, size_t), opt->in_base);
+		else
+			opt->str_arg = ft_ulltoa_base((size_t)va_arg(curr_arg, size_t), opt->in_base);
 	}
 	return (0);
 }
 
-int		ft_conv_int_arg(t_parsed_opt *opt, char **temp, va_list curr_arg)
+int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg)
 {
 	if (opt->bin_lenmod)
-		ft_conv_int_arg_wlenmod(opt, temp, curr_arg);
+		ft_conv_int_arg_wlenmod(opt, curr_arg);
 	else
 	{
 		if (opt->ch_convert == 'd' || opt->ch_convert == 'i')
@@ -42,10 +76,7 @@ int		ft_conv_int_arg(t_parsed_opt *opt, char **temp, va_list curr_arg)
 			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 8);
 		if (opt->ch_convert == 'p')
 			opt->str_arg = ft_lltoa_base((long long)va_arg(curr_arg, void *), 16);
-		*temp = opt->str_arg;
-		printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 	}
-	printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 	return (0);
 }
 
@@ -82,8 +113,6 @@ int		ft_conv_integer(t_parsed_opt *opt, va_list curr_arg)
 	temp = NULL;
 	begin = NULL;
 	ft_conv_int_manage_flag(opt, &temp, begin);
-	ft_conv_int_arg(opt, &temp, curr_arg);
-	va_copy(curr_arg, curr_arg);
-
+	ft_conv_int_arg(opt, curr_arg);
 	return (0);
 }

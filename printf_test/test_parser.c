@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:24:09 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/11 10:10:57 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/12 12:22:55 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,64 +95,9 @@ void	test_big_width_prec_argnbr()
 	ft_printf("%-2$ -21474836.-21474836d");
 }
 
-void	test_fuzz_opt(int looptime)
+void	test_fuzz_opt()
 {
-	char str[1000];
-	char *opt;
-	int j;
-
-	j = 0;
-	opt = ft_memalloc(6);
-	ft_bzero(opt, 6);
-	ft_bzero(str, 1000);
-	ft_strcpy(opt, AVAILABLE_LENMOD);
-	while (*opt)
-	{
-		j = 0;
-		ft_bzero(str, 1000);
-		ft_strcpy(str, "%");
-		while (j < looptime)
-		{
-			ft_strncat(str, opt, 1);
-			ft_printf(str);
-			j++;
-		}
-		opt++;
-	}
-	opt = NULL;
-	opt = ft_memalloc(6);
-	ft_bzero(opt, 6);
-	ft_bzero(str, 1000);
-	ft_strcpy(opt, AVAILABLE_FLAG);
-	while (*opt)
-	{
-		j = 0;
-		ft_bzero(str, 1000);
-		ft_strcpy(str, "%");
-		while (j < looptime)
-		{
-			ft_strncat(str, opt, 1);
-			ft_printf(str);
-			j++;
-		}
-		opt++;
-	}
-	opt = NULL;
-	opt = ft_memalloc(6);
-	ft_bzero(opt, 6);
-	ft_bzero(str, 1000);
-	ft_strcpy(opt, AVAILABLE_CONV);
-	while (*opt)
-	{
-		j = 0;
-		ft_bzero(str, 1000);
-		ft_strcpy(str, "%");
-		while (j < looptime)
-		{
-			ft_strncat(str, opt, 1);
-			ft_printf(str);
-			j++;
-		}
-		opt++;
-	}
+	ft_printf("abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)abcdefghijklmnopqrstuvxyz123456789!@#$(_+)\n");
+	ft_printf("\n|%kofekoekfokfoekfokefoekoekokfoek%|\n");
+	printf("%kofekoekfokfoekfokefoekoekokfoek%");
 }

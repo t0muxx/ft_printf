@@ -6,26 +6,30 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/11 10:21:54 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/12 15:52:58 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf_test.h"
-/*
-int	main(void)
-{
 
-	test_fuzz_opt(100);
-	test_fuzz_opt(200);
-	test_fuzz_opt(300);
-	test_fuzz_opt(400);
-	test_fuzz_opt(500);
-	test_fuzz_opt(600);
-	test_fuzz_opt(700);
-	test_fuzz_opt(800);
-	test_fuzz_opt(900);
-	test_big_width_prec_argnbr();
-	test_conv();
+int	main(int argc, char **argv)
+{
+	if (argc == 1)
+		return (0);
+	if (atoi(argv[1]) == 1)
+		test_convert_printf();
+	if (atoi(argv[1]) == 2)
+		test_convert();
+	if (atoi(argv[1]) == 3)
+		test_fuzz_opt();
+	if (atoi(argv[1]) == 4)
+		test_big_width_prec_argnbr();
+	if (atoi(argv[1]) == 5)
+	{
+		ft_printf("%x\n", 489);
+		printf("%x\n", 489);
+		ft_printf("%.9x\n", 489);
+		printf("%.9x\n", 489);
+	}
 	return (0);
 }
-*/
