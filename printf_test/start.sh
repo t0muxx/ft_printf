@@ -6,7 +6,7 @@
 #    By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/12 11:13:55 by tmaraval          #+#    #+#              #
-#    Updated: 2018/01/14 10:42:27 by tomlulu          ###   ########.fr        #
+#    Updated: 2018/01/14 15:48:35 by tomlulu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,9 +51,25 @@ echo "${VERT}#                                               #${RESETCOLOR}"
 echo "${VERT}#################################################${RESETCOLOR}"
 
 gcc test_main.c test_parser.c test_convert.c ../libftprintf.a ../libft/libft.a 2> /dev/null
+echo "test convertion basique"
 ./a.out 1 > printf.out
 ./a.out 2 > ft_printf.out
 cmpdiff
 printdebug
+echo "test precision"
+./a.out 6 > printf.out
+./a.out 7 > ft_printf.out
+cmpdiff
+printdebug
+echo "test largeur de champ + precision"
+./a.out 8 > printf.out
+./a.out 9 > ft_printf.out
+cmpdiff
+printdebug
+echo "test largeur de champ + precision + flag moins"
+./a.out 10 > printf.out
+./a.out 11 > ft_printf.out
+cmpdiff
+printdebug
 echo "Now i'm trying to segfault your printf"
-./a.out 3
+./a.out 3 > /dev/null

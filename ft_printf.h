@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/14 10:16:42 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:03:18 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ typedef	struct 	s_parsed_opt
 }				t_parsed_opt;
 
 void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt);
-int		ft_parser(t_parsed_opt *opt, char **format,
-va_list curr_arg);
+int		ft_parser(t_parsed_opt *opt, char **format, va_list curr_arg);
 int		ft_parser_managepercent(char **format);
 int		ft_parser_read_int_upd_str(char **format);
 void	ft_parser_manage_argnbr(char **format, char *begin, t_parsed_opt *opt);
@@ -77,6 +76,7 @@ void	ft_conv_int_manage_flag(t_parsed_opt *opt, char **temp, char *begin);
 int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg);
 int		ft_conv_int_arg_wlenmod(t_parsed_opt *opt, va_list curr_arg);
 void	ft_printf_precision(t_parsed_opt *opt);
+void	ft_printf_width(t_parsed_opt *opt);
 
 char	*ft_lltoa_base(long long nb, int base);
 char	*ft_ulltoa_base(unsigned long long nb, int base);
