@@ -6,12 +6,20 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/12 12:46:09 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/14 10:16:42 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+#ifdef __linux__
+# define INTMAX_T __intmax_t
+# define UINTMAX_T __uintmax_t
+#else
+# define INTMAX_T intmax_t
+# define UINTMAX_T uintmax_t
+#endif
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -68,6 +76,7 @@ int		ft_conv_integer(t_parsed_opt *opt, va_list curr_arg);
 void	ft_conv_int_manage_flag(t_parsed_opt *opt, char **temp, char *begin);
 int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg);
 int		ft_conv_int_arg_wlenmod(t_parsed_opt *opt, va_list curr_arg);
+void	ft_printf_precision(t_parsed_opt *opt);
 
 char	*ft_lltoa_base(long long nb, int base);
 char	*ft_ulltoa_base(unsigned long long nb, int base);

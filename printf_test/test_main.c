@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/12 15:52:58 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/14 12:21:45 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	main(int argc, char **argv)
 		test_big_width_prec_argnbr();
 	if (atoi(argv[1]) == 5)
 	{
-		ft_printf("%x\n", 489);
-		printf("%x\n", 489);
-		ft_printf("%.9x\n", 489);
-		printf("%.9x\n", 489);
+			printf("%.0d\n", 0);
+			ft_printf("%.0d\n", 0);
 	}
+	if (atoi(argv[1]) == 6)
+		test_precision_printf();
+	if (atoi(argv[1]) == 7)
+		test_precision();
 	return (0);
 }

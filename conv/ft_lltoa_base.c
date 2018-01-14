@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 08:14:11 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/11 12:52:03 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/14 10:57:46 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_lltoa_cpy(long long nb, int base, int sign)
 
 	i = 1;
 	cnt = ft_llcnt_digit(nb, base);
-	ft_strcpy(basestr, "0123456789ABCDEF");
+	ft_strcpy(basestr, "0123456789abcdef");
 	if (!(ret = (char *)malloc(sizeof(char) * (cnt + sign + 1))))
 		return (NULL);
 	while (nb != 0)

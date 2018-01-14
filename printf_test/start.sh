@@ -6,7 +6,7 @@
 #    By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/12 11:13:55 by tmaraval          #+#    #+#              #
-#    Updated: 2018/01/12 11:29:28 by tmaraval         ###   ########.fr        #
+#    Updated: 2018/01/14 10:42:27 by tomlulu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ PRINTDEBUG=1
 
 cmpdiff()
 {
-	diff -U 3 ../printf.out ../ft_printf.out > out.txt
+	diff -U 3 printf.out ft_printf.out > out.txt
 	if [ $? -ne 0 ]; then
 	    echo "${ROUGE}[KO]${RESETCOLOR} DIFF KO";
 	else

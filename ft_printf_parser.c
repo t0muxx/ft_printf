@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/11 15:08:35 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/14 12:02:07 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt)
 	opt->ch_convert = 0;
 	opt->in_argnbr = 0;
 	opt->in_base = 0;
+	opt->str_arg = NULL;
 }
 
 void	ft_parser_manage_base(t_parsed_opt *opt)
@@ -32,19 +33,22 @@ void	ft_parser_manage_base(t_parsed_opt *opt)
 	opt->in_base = opt->ch_convert == 'p' ? 16 : opt->in_base;
 	opt->in_base = opt->ch_convert == 'o' ? 8 : opt->in_base;
 	opt->in_base = opt->ch_convert == 'O' ? 8 : opt->in_base;
-	opt->in_base = opt->ch_convert == 'x' ? 8 : opt->in_base;
+	opt->in_base = opt->ch_convert == 'x' ? 16 : opt->in_base;
 	opt->in_base = opt->ch_convert == 'X' ? 16 : opt->in_base;
 }
 void	ft_parser_manage_prec(char **format, t_parsed_opt *opt)
 {
 	int nbr;
 
-	nbr = 0;
+	nbr = -2;
 	if (**format == '.')
 	{
 		(*format)++;
 		nbr = ft_parser_read_int_upd_str(format);
-		opt->in_precision = nbr;
+		if (nbr == 0)
+			opt->in_precision = -1;
+		else
+			opt->in_precision = nbr;
 	}
 }
 
@@ -76,18 +80,19 @@ int		ft_parser_manage_lenmod(char **format, t_parsed_opt *opt)
 }
 
 int		ft_parser(t_parsed_opt *opt, char **format,
-va_list curr_arg, va_list start_arg)
+va_list curr_arg)
 {
 	char	*begin;
 
 	begin = *format;
+	//printf("\n++++|%c|+++++ %d %s\n", *begin, __LINE__, __FILE__);
 	if (ft_parser_managepercent(format) == 1)
 		return (1);
 	(*format)++;
 	begin = *format;
-//	printf("\n++++|%c|+++++ %d %s\n", *begin, __LINE__, __FILE__);
+	//printf("\n++++|%c|+++++ %d %s\n", *begin, __LINE__, __FILE__);
 	ft_parser_manage_argnbr(format, begin, opt);
-//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
+	//printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_flag(format, opt);
 //	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_width(format, opt);
@@ -102,7 +107,10 @@ va_list curr_arg, va_list start_arg)
 		opt->ch_convert = -1;
 	ft_parser_manage_base(opt);
 	ft_conv(opt, curr_arg);
-	if (start_arg)
-		;
+	if (opt->str_arg != NULL)
+	{
+		write(1, opt->str_arg, ft_strlen(opt->str_arg));
+		free(opt->str_arg);
+	}
 	return (0);
 }
