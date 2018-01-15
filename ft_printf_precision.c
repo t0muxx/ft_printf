@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 10:08:03 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/15 17:10:19 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/15 17:19:29 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_printf_precision(t_parsed_opt *opt)
 			free(temp);
 		}
 	}
+	/* On affiche pas le 0 dans ces deux cas */
 	if (opt->bin_flag != 0 || (opt->in_precision == 0))
 	{
 		if (opt->in_precision <= 0 && ft_strcmp(opt->str_arg, "0") == 0
