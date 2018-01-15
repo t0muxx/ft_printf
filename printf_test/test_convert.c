@@ -6,9 +6,122 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/14 15:44:59 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/15 10:42:15 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void	test_width_printf_plusminussharp()
+{
+	long long tab[16] = {-128, 127, 0, 255, -32768, 32767, 0, 65535,
+	-2147483648, 2147483647, 0, 4294967295, -9223372036854775807, 9223372036854775807,0, 18446744073709551615 };
+	int i;
+	int j;
+	char tab2[48][4] = {"2", "3", "4", "2", "3", "4", "0", "1", "2", "2", "3", "4", "4", "5", "6", "4", "5", "6", "0", "0", "1", "4", "5", "6", "9", "10", "11", "9", "10", "11",
+		"0", "0", "1", "9", "10", "11", "18", "19", "20", "18", "19", "20", "20", "21", "22"};
+	char tabwidth[48][4] = {"4", "5", "6", "4", "5", "6", "2", "3", "4", "4", "5", "6", "6", "7", "8", "6", "7", "8", "2", "2", "3", "6", "7", "8", "11", "12", "13", "11", "12", "13",
+		"2", "2", "3", "11", "12", "13", "20", "21", "22", "20", "21", "22", "22", "23", "23"};
+	char tab3[35][6] = {"d", "hd", "hhd", "ld", "lld", "jd", "zd", "i", "hi", "hhi", "li", "lli", "ji", "zi",
+	"u", "hu", "hhu", "lu", "llu", "ju", "zu", "o", "ho", "hho", "lo", "llo", "jo", "zo",
+	"x", "hx", "hhx", "lx", "llx", "jx", "zx" };
+	i = 0;
+	j = 0;
+	int k;
+	k = 0;
+	char str[100];
+	while (j < 45)
+	{
+		i = 0;
+		while (i < 16)
+		{
+			printf("i = %d\n", i);
+			printf("j = %d\n", j);
+			k = 0;
+			while (k < 35)
+			{
+				bzero(str, 100);
+				strcat(str, "%#-");
+				strcat(str, tabwidth[j]);
+				strcat(str, ".");
+				strcat(str, tab2[j]);
+				strcat(str, tab3[k]);
+				strcat(str, "\n");
+				printf("%s", str);
+				printf(str, tab[i]);
+				k++;
+			}
+			i++;
+		}
+		j++;
+	}
+}
+
+void	test_width_plusminussharp()
+{
+	long long tab[16] = {-128, 127, 0, 255, -32768, 32767, 0, 65535,
+	-2147483648, 2147483647, 0, 4294967295, -9223372036854775807, 9223372036854775807,0, 18446744073709551615 };
+	int i;
+	int j;
+	char tab2[48][4] = {"2", "3", "4", "2", "3", "4", "0", "1", "2", "2", "3", "4", "4", "5", "6", "4", "5", "6", "0", "0", "1", "4", "5", "6", "9", "10", "11", "9", "10", "11",
+		"0", "0", "1", "9", "10", "11", "18", "19", "20", "18", "19", "20", "20", "21", "22"};
+	char tabwidth[48][4] = {"4", "5", "6", "4", "5", "6", "2", "3", "4", "4", "5", "6", "6", "7", "8", "6", "7", "8", "2", "2", "3", "6", "7", "8", "11", "12", "13", "11", "12", "13",
+		"2", "2", "3", "11", "12", "13", "20", "21", "22", "20", "21", "22", "22", "23", "23"};
+	char tab3[35][6] = {"d", "hd", "hhd", "ld", "lld", "jd", "zd", "i", "hi", "hhi", "li", "lli", "ji", "zi",
+	"u", "hu", "hhu", "lu", "llu", "ju", "zu", "o", "ho", "hho", "lo", "llo", "jo", "zo",
+	"x", "hx", "hhx", "lx", "llx", "jx", "zx" };
+	i = 0;
+	j = 0;
+	int k;
+	k = 0;
+	char str[100];
+	while (j < 45)
+	{
+		i = 0;
+		while (i < 16)
+		{
+			ft_putstr("i = ");
+			ft_putnbr(i);
+			ft_putendl("");
+			ft_putstr("j = ");
+			ft_putnbr(j);
+			ft_putendl("");
+			k = 0;
+			while (k < 35)
+			{
+				bzero(str, 100);
+				strcat(str, "%#-");
+				strcat(str, tabwidth[j]);
+				strcat(str, ".");
+				strcat(str, tab2[j]);
+				strcat(str, tab3[k]);
+				strcat(str, "\n");
+				ft_putstr(str);
+				ft_printf(str, tab[i]);
+				k++;
+			}
+			i++;
+		}
+		j++;
+	}
+}
+
+
+void	test_ptr()
+{
+	char *str = "test";
+	int *pintt;
+	long int *plint;
+
+	int intt = 9;
+	long int lint = 16;
+	pintt = &intt;
+	plint = &lint;
+	printf("|%p|\n", str);
+	printf("|%p|\n", pintt);
+	printf("|%p|\n", plint);
+	ft_printf("|%p|\n", str);
+	ft_printf("|%p|\n", pintt);
+	ft_printf("|%p|\n", plint);
+}
 
 void	test_width_printf_plusminus()
 {

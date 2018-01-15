@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/14 15:46:35 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/15 10:47:26 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,8 @@ int	main(int argc, char **argv)
 		test_big_width_prec_argnbr();
 	if (atoi(argv[1]) == 5)
 	{
-		printf("|%10d|\n", 5);
-		ft_printf("|%10d|\n", 5);
-		printf("|%-10d|\n", 5);
-		ft_printf("|%-10d|\n", 5);
-		printf("|%10d|\n", -5);
-		ft_printf("|%10d|\n", -5);
-		printf("|%-10d|\n", -5);
-		ft_printf("|%-10d|\n", -5);
+		printf("|%#o|\n", 10);
+		ft_printf("|%#o|\n", 10);
 	}
 	if (atoi(argv[1]) == 6)
 		test_precision_printf();
@@ -47,5 +41,11 @@ int	main(int argc, char **argv)
 		test_width_printf_plusminus();
 	if (atoi(argv[1]) == 11)
 		test_width_plusminus();
+	if (atoi(argv[1]) == 12)
+		test_ptr();
+	if (atoi(argv[1]) == 13)
+		test_width_printf_plusminussharp();
+	if (atoi(argv[1]) == 14)
+		test_width_plusminussharp();
 	return (0);
 }

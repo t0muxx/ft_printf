@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:22:35 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/14 11:10:02 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/15 08:07:55 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,7 @@ int		ft_conv_int_arg_wlenmod(t_parsed_opt *opt, va_list curr_arg)
 int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg)
 {
 	if (opt->bin_lenmod)
-	{
 		ft_conv_int_arg_wlenmod(opt, curr_arg);
-		if (opt->ch_convert == 'X')
-			ft_strupcase(opt->str_arg);
-	}
 	else
 	{
 		if (opt->ch_convert == 'd' || opt->ch_convert == 'i')
@@ -81,35 +77,8 @@ int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg)
 			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 8);
 		if (opt->ch_convert == 'p')
 			opt->str_arg = ft_lltoa_base((long long)va_arg(curr_arg, void *), 16);
-		if (opt->ch_convert == 'X')
-			ft_strupcase(opt->str_arg);
 	}
 	return (0);
-}
-
-void	ft_conv_int_manage_flag(t_parsed_opt *opt, char **temp, char *begin)
-{
-	if (opt->bin_flag & FLG_SHARP)
-	{
-		if (opt->ch_convert == 'o' || opt->ch_convert == 'O')
-		{
-			*temp = ft_memalloc(2);
-			begin = *temp;
-			ft_bzero(*temp, 2);
-			ft_strcpy(*temp, "0");
-			*temp  = *(temp + 1);
-			printf("\n++++|%s|+++++ %d %s\n", begin, __LINE__, __FILE__);
-		}
-		if (opt->ch_convert == 'x' || opt->ch_convert == 'X')
-		{
-			*temp = ft_memalloc(3);
-			begin = *temp;
-			ft_bzero(*temp, 3);
-			ft_strcpy(*temp, "0x");
-			*temp  = *(temp + 2);
-			printf("\n++++|%s|+++++ %d %s\n", begin, __LINE__, __FILE__);
-		}
-	}
 }
 
 int		ft_conv_integer(t_parsed_opt *opt, va_list curr_arg)
@@ -119,7 +88,6 @@ int		ft_conv_integer(t_parsed_opt *opt, va_list curr_arg)
 
 	temp = NULL;
 	begin = NULL;
-	ft_conv_int_manage_flag(opt, &temp, begin);
 	ft_conv_int_arg(opt, curr_arg);
 	return (0);
 }

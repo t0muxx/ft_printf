@@ -6,7 +6,7 @@
 #    By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/12 11:13:55 by tmaraval          #+#    #+#              #
-#    Updated: 2018/01/14 15:48:35 by tomlulu          ###   ########.fr        #
+#    Updated: 2018/01/15 10:08:34 by tmaraval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,5 +71,12 @@ echo "test largeur de champ + precision + flag moins"
 ./a.out 11 > ft_printf.out
 cmpdiff
 printdebug
+echo "test largeur de champ + precision + flag moins + flag sharp"
+./a.out 13 > printf.out
+./a.out 14 > ft_printf.out
+cmpdiff
+printdebug
+echo "test affichage pointeur."
+./a.out 12
 echo "Now i'm trying to segfault your printf"
 ./a.out 3 > /dev/null

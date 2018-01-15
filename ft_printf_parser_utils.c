@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:27:58 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/11 09:53:00 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/15 08:58:34 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void	ft_parser_manage_flag(char **format, t_parsed_opt *opt)
 		opt->bin_flag |= **format == '+' ? FLG_PLUS : 0;
 		(*format)++;
 	}
+	if ((opt->bin_flag & FLG_SP) && (opt->bin_flag & FLG_PLUS))
+		opt->bin_flag &= ~(1 << 3);
 }
 
 void	ft_parser_manage_width(char **format, t_parsed_opt *opt)
