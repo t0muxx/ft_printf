@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/15 10:42:15 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/15 17:06:30 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ void	test_width_printf_plusminus()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
+				printf("%s", str);
 				printf(str, tab[i]);
 				k++;
 			}
@@ -206,6 +207,7 @@ void	test_width_plusminus()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
+				ft_putstr(str);
 				ft_printf(str, tab[i]);
 				k++;
 			}
@@ -250,6 +252,7 @@ void	test_width_printf()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
+				printf("%s", str);
 				printf(str, tab[i]);
 				k++;
 			}
@@ -298,6 +301,7 @@ void	test_width()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
+				ft_putstr(str);
 				ft_printf(str, tab[i]);
 				k++;
 			}

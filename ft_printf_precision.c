@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 10:08:03 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/14 15:26:33 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/15 17:10:19 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,15 @@ void	ft_printf_precision(t_parsed_opt *opt)
 			free(temp);
 		}
 	}
-	if (opt->in_precision == -1 && ft_strcmp(opt->str_arg, "0") == 0)
+	if (opt->bin_flag != 0 || (opt->in_precision == 0))
 	{
-		ft_strcpy(opt->str_arg, "\0");
+		if (opt->in_precision <= 0 && ft_strcmp(opt->str_arg, "0") == 0
+		&& ft_strchr("xXidiu", opt->ch_convert))
+		{
+			ft_strcpy(opt->str_arg, "\0");
+		}
+		if (opt->in_precision <= 0 && ft_strcmp(opt->str_arg, "0") == 0
+		&& ft_strchr("oO", opt->ch_convert) && ((opt->bin_flag & FLG_SHARP) == 0))
+			ft_strcpy(opt->str_arg, "\0");
 	}
 }

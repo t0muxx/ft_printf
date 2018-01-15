@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/15 10:47:26 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/15 17:07:32 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,29 @@ int	main(int argc, char **argv)
 		test_big_width_prec_argnbr();
 	if (atoi(argv[1]) == 5)
 	{
-		printf("|%#o|\n", 10);
-		ft_printf("|%#o|\n", 10);
+		printf("|%2.0lx|\n", 0);
+		ft_printf("|%2.0lx|\n", 0);
+		printf("|%#-2.0lx|\n", 0);
+		ft_printf("|%#-2.0lx|\n", 0);
+		printf("|%#-2.0i|\n", 0);
+		ft_printf("|%#-2.0i|\n", 0);
+		printf("|%#-2.0d|\n", 0);
+		ft_printf("|%#-2.0d|\n", 0);
+		printf("|%-2.0hho|\n", 0);
+		ft_printf("|%-2.0hho|\n", 0);
+		printf("|%#-2.0o|\n", 0);
+		ft_printf("|%#-2.0o|\n", 0);
+		printf("|%#-2.0lx|\n", 0);
+		ft_printf("|%#-2.0lx|\n", 0);
+		printf("|%#-2.0i|\n", 0);
+		ft_printf("|%#-2.0i|\n", 0);
+		printf("|%#-2.0d|\n", 0);
+		ft_printf("|%#-2.0d|\n", 0);
+		printf("|%-2.0hho|\n", 0);
+		ft_printf("|%-2.0hho|\n", 0);
+		printf("|%d|\n", 0);
+		ft_printf("|%d|\n", 0);
+
 	}
 	if (atoi(argv[1]) == 6)
 		test_precision_printf();

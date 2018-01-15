@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/14 12:02:07 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/15 17:15:12 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt)
 {
 	opt->bin_flag = 0;
 	opt->in_width = 0;
-	opt->in_precision = 0;
+	opt->in_precision = -1;
 	opt->bin_lenmod = 0;
 	opt->ch_convert = 0;
 	opt->in_argnbr = 0;
@@ -45,10 +45,7 @@ void	ft_parser_manage_prec(char **format, t_parsed_opt *opt)
 	{
 		(*format)++;
 		nbr = ft_parser_read_int_upd_str(format);
-		if (nbr == 0)
-			opt->in_precision = -1;
-		else
-			opt->in_precision = nbr;
+		opt->in_precision = nbr;
 	}
 }
 
