@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 11:44:35 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 15:45:50 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,29 @@ void	ft_putnbr(int n)
 		ft_putnbr(nb / 10);
 	}
 	ft_putchar(nb % 10 + '0');
+}
+
+void	test_char_printf()
+{
+	printf("|%c|\n", 'a');
+	printf("|%5c|\n", 'b');
+	printf("|%-5c|\n", 'c');
+	printf("|%05c|\n", 'd');
+	printf("|%05.5c|\n", 'e');
+	printf("|%05.5c|\n", 265);
+	printf("|%lc|\n", 137);
+}
+
+void	test_char()
+{
+
+	ft_printf("|%c|\n", 'a');
+	ft_printf("|%5c|\n", 'b');
+	ft_printf("|%-5c|\n", 'c');
+	ft_printf("|%05c|\n", 'd');
+	ft_printf("|%05.5c|\n", 'e');
+	ft_printf("|%05.5c|\n", 265);
+	ft_printf("|%lc|\n", 137);
 }
 
 void	test_special_printf()

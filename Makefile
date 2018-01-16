@@ -6,7 +6,7 @@
 #    By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/09 15:05:31 by tomlulu           #+#    #+#              #
-#    Updated: 2018/01/16 15:11:55 by tmaraval         ###   ########.fr        #
+#    Updated: 2018/01/16 16:29:06 by tmaraval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = 	ft_printf.c \
 		ft_printf_parser_utils.c \
 		ft_printf_utils.c \
 		ft_printf_precision.c \
+		ft_printf_str_precision.c \
 		ft_printf_width.c \
 		ft_printf_cwidth.c \
 		ft_printf_num_flag.c \
@@ -26,6 +27,7 @@ SRC = 	ft_printf.c \
 		conv/ft_lltoa_base.c \
 		conv/ft_ulltoa_base.c \
 		conv/ft_conv_char.c \
+		conv/ft_conv_str.c \
 		libft/ft_atoi.c \
 		libft/ft_bzero.c \
 		libft/ft_isalnum.c \

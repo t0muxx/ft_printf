@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_cwidth.c                                 :+:      :+:    :+:   */
+/*   ft_printf_str_precision.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/16 15:11:26 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 16:25:11 by tmaraval         ###   ########.fr       */
+/*   Created: 2018/01/16 16:26:55 by tmaraval          #+#    #+#             */
+/*   Updated: 2018/01/16 16:28:38 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_cwidth(t_parsed_opt *opt)
+void	ft_printf_str_precision(t_parsed_opt *opt)
 {
 	char *temp;
 
-	//printf("\n++++|%d|+++++ %d %s\n", opt->in_width, __LINE__, __FILE__);
-	while (ft_strlen(opt->str_arg) < (size_t)opt->in_width)
+	if (opt->in_precision != -1)
 	{
 		temp = opt->str_arg;
-		if (opt->bin_flag & FLG_ZERO && (opt->bin_flag & FLG_MINUS) == 0)
-			opt->str_arg = ft_strjoin("0", opt->str_arg);
-		else if (opt->bin_flag & FLG_MINUS)
-			opt->str_arg = ft_strjoin(opt->str_arg, " ");
-		else
-			opt->str_arg = ft_strjoin(" ", opt->str_arg);
+		opt->str_arg = ft_strsub(opt->str_arg, 0, opt->in_precision);
 		free(temp);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 15:21:10 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 16:23:19 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,25 @@ int	main(int argc, char **argv)
 		test_big_width_prec_argnbr();
 	if (atoi(argv[1]) == 5)
 	{
-		printf("|%c|\n", 'a');
-		ft_printf("|%c|\n", 'a');
-		printf("|%5c|\n", 'b');
-		ft_printf("|%5c|\n", 'b');
-		printf("|%-5c|\n", 'c');
-		ft_printf("|%-5c|\n", 'c');
-		printf("|%05c|\n", 'd');
-		ft_printf("|%05c|\n", 'd');
-		printf("|%05.5c|\n", 'e');
-		ft_printf("|%05.5c|\n", 'e');
-		printf("|%lc|\n", 137);
-		ft_printf("|%lc|\n", 137);
-		printf("|%05d|\n", 100);
-		ft_printf("|%05d|\n", 100);
+		printf("|%s|\n", "test");
+		ft_printf("|%s|\n", "test");
+		printf("|%09s|\n", "test");
+		ft_printf("|%09s|\n", "test");
+		printf("|%-9s|\n", "test");
+		ft_printf("|%-9s|\n", "test");
+		printf("|%-09s|\n", "test");
+		ft_printf("|%-09s|\n", "test");
+		printf("|% 9s|\n", "test");
+		ft_printf("|% 9s|\n", "test");
+		printf("|%.2s|\n", "test");
+		ft_printf("|%.2s|\n", "test");
+		printf("|%9.2s|\n", "test");
+		ft_printf("|%9.2s|\n", "test");
+		printf("|%-9.2s|\n", "test");
+		ft_printf("|%-9.2s|\n", "test");
+		printf("|%ls|\n", L"tést");
+		ft_printf("|%ls|\n", L"tést");
+
 	}
 	if (atoi(argv[1]) == 6)
 		test_precision_printf();
@@ -67,5 +72,9 @@ int	main(int argc, char **argv)
 		test_special_printf();
 	if (atoi(argv[1]) == 18)
 		test_special();
+	if (atoi(argv[1]) == 19)
+		test_char_printf();
+	if (atoi(argv[1]) == 20)
+		test_char();
 	return (0);
 }

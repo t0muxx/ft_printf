@@ -6,7 +6,7 @@
 #    By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/12 11:13:55 by tmaraval          #+#    #+#              #
-#    Updated: 2018/01/16 11:44:01 by tmaraval         ###   ########.fr        #
+#    Updated: 2018/01/16 15:48:31 by tmaraval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,11 @@ printdebug
 echo "Test special"
 ./a.out 17 > printf.out
 ./a.out 18 > ft_printf.out
+cmpdiff
+printdebug
+echo "Test char"
+./a.out 19 > printf.out
+./a.out 20 > ft_printf.out
 cmpdiff
 printdebug
 echo "test affichage pointeur."
