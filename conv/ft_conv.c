@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 10:24:31 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 10:36:04 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
 {
-	if (ft_strchr("oOxXdupi", opt->ch_convert))
+	if (ft_strchr("oOxXdDupi", opt->ch_convert))
 	{
 		ft_conv_integer(opt, curr_arg);
 		ft_printf_num_manage_flag(opt);

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 10:18:52 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 10:37:14 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <unistd.h>
 #include "libft/libft.h"
 #include <limits.h>
-
-#include "printf_test/printf_test.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -47,7 +45,7 @@
 # define LENMOD_J	16
 # define LENMOD_Z	32
 
-# define AVAILABLE_CONV "sSpcoOxXdiu"
+# define AVAILABLE_CONV "sSpcoOxXdDiu"
 
 typedef	struct 	s_parsed_opt
 {
