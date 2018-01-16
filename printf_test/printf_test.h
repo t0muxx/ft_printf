@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:25:45 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/15 10:10:01 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 08:16:59 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,4 @@ void	test_width_plusminus();
 void	test_ptr();
 void	test_width_printf_plusminussharp();
 void	test_width_plusminussharp();
+void	test_width_printf_moretest();

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 07:52:49 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/15 17:23:08 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 09:21:06 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,21 @@ void	ft_printf_manage_flag(t_parsed_opt *opt)
 			}
 		}
 	}
-	if (opt->bin_flag & FLG_SP)
+	if (opt->bin_flag & FLG_SP && ft_strchr("di", opt->ch_convert))
 	{
 		if (opt->str_arg[0] != '-')
 		{
+			ft_printf_precision(opt);
 			temp = opt->str_arg;
 			opt->str_arg = ft_strjoin(" ", opt->str_arg);
 			free(temp);
 		}
 	}
-	if (opt->bin_flag & FLG_PLUS)
+	if (opt->bin_flag & FLG_PLUS && ft_strchr("di", opt->ch_convert))
 	{
 		if (opt->str_arg[0] != '-')
 		{
+			ft_printf_precision(opt);
 			temp = opt->str_arg;
 			opt->str_arg = ft_strjoin("+", opt->str_arg);
 			free(temp);
