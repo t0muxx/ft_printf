@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv.c                                          :+:      :+:    :+:   */
+/*   ft_printf_flag_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 10:29:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 09:40:38 by tmaraval         ###   ########.fr       */
+/*   Created: 2018/01/16 09:37:28 by tmaraval          #+#    #+#             */
+/*   Updated: 2018/01/16 09:37:57 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
+int		ft_printf_flag_strarg_isnega(t_parsed_opt *opt)
 {
-	if (ft_strchr("oOxXdupi", opt->ch_convert))
-		ft_conv_integer(opt, curr_arg);
-	ft_printf_num_manage_flag(opt);
-	ft_printf_precision(opt);
-	ft_printf_width(opt);
-	if (opt->ch_convert == 'X')
-		ft_strupcase(opt->str_arg);
+	int i;
+
+	i = 0;
+	while (opt->str_arg[i])
+	{
+		if (ft_strchr("123456789abcdef", opt->str_arg[i]) != NULL)
+			return (1);
+		i++;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/12 11:13:55 by tmaraval          #+#    #+#              #
-#    Updated: 2018/01/16 08:26:59 by tmaraval         ###   ########.fr        #
+#    Updated: 2018/01/16 10:08:46 by tmaraval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ echo "${VERT}#   2018                       by : tmaraval    #${RESETCOLOR}"
 echo "${VERT}#                                               #${RESETCOLOR}"
 echo "${VERT}#################################################${RESETCOLOR}"
 
-gcc test_main.c test_parser.c test_convert.c ../libftprintf.a ../libft/libft.a 2> /dev/null
+gcc test_main.c test_parser.c test_convert.c ../libftprintf.a 2> /dev/null
 echo "test convertion basique"
 ./a.out 1 > printf.out
 ./a.out 2 > ft_printf.out

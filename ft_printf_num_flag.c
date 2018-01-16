@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_flag.c                                   :+:      :+:    :+:   */
+/*   ft_printf_num_flag.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 07:52:49 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 09:21:06 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 10:08:16 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf_strarg_isnega(t_parsed_opt *opt)
-{
-	int i;
-
-	i = 0;
-	while (opt->str_arg[i])
-	{
-		if (ft_strchr("123456789abcdef", opt->str_arg[i]) != NULL)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	ft_printf_manage_flag(t_parsed_opt *opt)
+void	ft_printf_num_sharp(t_parsed_opt *opt)
 {
 	char *temp;
 
@@ -35,7 +21,7 @@ void	ft_printf_manage_flag(t_parsed_opt *opt)
 		if (opt->ch_convert == 'o' || opt->ch_convert == 'O')
 		{
 			temp = opt->str_arg;
-			if (ft_printf_strarg_isnega(opt) != 0)
+			if (ft_printf_flag_strarg_isnega(opt) != 0)
 			{
 				opt->str_arg = ft_strjoin("0", opt->str_arg);
 				free(temp);
@@ -45,13 +31,20 @@ void	ft_printf_manage_flag(t_parsed_opt *opt)
 		{
 			ft_printf_precision(opt);
 			temp = opt->str_arg;
-			if (ft_printf_strarg_isnega(opt) != 0)
+			if (ft_printf_flag_strarg_isnega(opt) != 0)
 			{
 				opt->str_arg = ft_strjoin("0x", opt->str_arg);
 				free(temp);
 			}
 		}
 	}
+}
+
+void	ft_printf_num_manage_flag(t_parsed_opt *opt)
+{
+	char *temp;
+
+	ft_printf_num_sharp(opt);
 	if (opt->bin_flag & FLG_SP && ft_strchr("di", opt->ch_convert))
 	{
 		if (opt->str_arg[0] != '-')

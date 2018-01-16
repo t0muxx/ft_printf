@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 14:39:10 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/14 15:28:04 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/16 10:07:49 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_printf_width(t_parsed_opt *opt)
 {
 	char *temp;
 
-	while (ft_strlen(opt->str_arg) < opt->in_width)
+	while (ft_strlen(opt->str_arg) < (size_t)opt->in_width)
 	{
 		temp = opt->str_arg;
 		if (opt->bin_flag & FLG_MINUS)
