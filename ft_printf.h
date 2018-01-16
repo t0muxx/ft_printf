@@ -6,20 +6,12 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 09:48:45 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 10:17:38 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-#ifdef __linux__
-# define INTMAX_T __intmax_t
-# define UINTMAX_T __uintmax_t
-#else
-# define INTMAX_T intmax_t
-# define UINTMAX_T uintmax_t
-#endif
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -31,6 +23,14 @@
 
 # define TRUE 1
 # define FALSE 0
+
+#ifdef __linux__
+# define INTMAX_T __intmax_t
+# define UINTMAX_T __uintmax_t
+#else
+# define INTMAX_T intmax_t
+# define UINTMAX_T uintmax_t
+#endif
 
 # define AVAILABLE_FLAG "#0- +"
 # define FLG_SHARP 1
