@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 16:23:19 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 16:34:38 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 	{
 		printf("|%s|\n", "test");
 		ft_printf("|%s|\n", "test");
+		printf("|%s|\n", "");
+		ft_printf("|%s|\n", "");
 		printf("|%09s|\n", "test");
 		ft_printf("|%09s|\n", "test");
 		printf("|%-9s|\n", "test");
@@ -44,6 +46,8 @@ int	main(int argc, char **argv)
 		ft_printf("|%-9.2s|\n", "test");
 		printf("|%ls|\n", L"tést");
 		ft_printf("|%ls|\n", L"tést");
+		printf("|%S|\n", L"tést");
+		ft_printf("|%S|\n", L"tést");
 
 	}
 	if (atoi(argv[1]) == 6)
