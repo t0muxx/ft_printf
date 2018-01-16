@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 11:09:40 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 11:20:44 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	main(int argc, char **argv)
 		test_big_width_prec_argnbr();
 	if (atoi(argv[1]) == 5)
 	{
-		ft_printf("|%04.3i|\n", 42);
-		printf("|%04.3i|\n", 42);
+		ft_printf("|%+04i|\n", 42);
+		printf("|%+04i|\n", 42);
 	}
 	if (atoi(argv[1]) == 6)
 		test_precision_printf();
