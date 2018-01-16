@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:57:07 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 10:55:21 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 15:20:20 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int 	ft_printf(const char *format, ...)
 		{
 			ft_parser_init_t_parsed_opt(&opt);
 			ret += ft_parser(&opt, &p_format, curr_arg);
-			//ft_printf_print_opt(opt);
+		//	ft_printf_print_opt(opt);
 		}
 	}
 	va_end(curr_arg);

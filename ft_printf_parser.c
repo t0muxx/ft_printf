@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/16 10:24:59 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 15:28:40 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ va_list curr_arg)
 	ft_parser_manage_flag(format, opt);
 //	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_width(format, opt);
+//	printf("\n++++|%d|+++++ %d %s\n", opt->in_width, __LINE__, __FILE__);
 	ft_parser_manage_prec(format, opt);
 	ft_parser_manage_lenmod(format, opt);
 	if (ft_strchr(AVAILABLE_CONV, **format))
