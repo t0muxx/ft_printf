@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 10:17:38 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 10:18:52 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define FALSE 0
 
 #ifdef __linux__
-# define INTMAX_T __intmax_t
-# define UINTMAX_T __uintmax_t
+# define INTMAX_T intmax_t
+# define UINTMAX_T uintmax_t
 #else
 # define INTMAX_T intmax_t
 # define UINTMAX_T uintmax_t
