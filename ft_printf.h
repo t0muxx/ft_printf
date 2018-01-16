@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 16:29:18 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 17:05:53 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 #include <unistd.h>
 #include "libft/libft.h"
 #include <limits.h>
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <wchar.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -56,6 +60,7 @@ typedef	struct 	s_parsed_opt
 	char			ch_convert;
 	int				in_argnbr;
 	char			*str_arg;
+	wchar_t			*wstr_arg;
 	int				in_base;
 
 }				t_parsed_opt;
