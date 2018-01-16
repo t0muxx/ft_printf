@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/15 17:15:12 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 10:24:59 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,14 @@ va_list curr_arg)
 	}
 	else
 		opt->ch_convert = -1;
+	//printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
+//	printf("\n++++|%c|+++++ %d %s\n", opt->ch_convert, __LINE__, __FILE__);
 	ft_parser_manage_base(opt);
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
+	//printf("\n++++|%c|+++++ %d %s\n", opt->ch_convert, __LINE__, __FILE__);
 	ft_conv(opt, curr_arg);
+	//printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
+//	printf("\n++++|%c|+++++ %d %s\n", opt->ch_convert, __LINE__, __FILE__);
 	if (opt->str_arg != NULL)
 	{
 		write(1, opt->str_arg, ft_strlen(opt->str_arg));
