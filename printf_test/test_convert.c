@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 09:28:43 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 10:55:04 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,18 @@ void	ft_putnbr(int n)
 		ft_putnbr(nb / 10);
 	}
 	ft_putchar(nb % 10 + '0');
+}
+
+void	test_special()
+{
+	ft_printf("|%04i|\n", 43);
+	printf("|%04i|\n", 43);
+	ft_printf("|%05i|\n", 43);
+	printf("|%05i|\n", 43);
+	ft_printf("|%04i|\n", -43);
+	printf("|%04i|\n", -43);
+	ft_printf("|%+05i|\n", 43);
+	printf("|%+05i|\n", 43);
 }
 
 void	test_width_printf_moretest()
