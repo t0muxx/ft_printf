@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 07:52:49 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 10:59:04 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 11:32:24 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_printf_num_sharp(t_parsed_opt *opt)
 		{
 			ft_printf_precision(opt);
 			temp = opt->str_arg;
-			if (ft_printf_flag_strarg_isnega(opt) != 0)
+			if (ft_printf_flag_strarg_isnega(opt) != 0 || opt->ch_convert == 'p')
 			{
 				opt->str_arg = ft_strjoin("0x", opt->str_arg);
 				free(temp);

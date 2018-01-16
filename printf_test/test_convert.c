@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 10:55:04 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 11:44:35 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,30 @@ void	ft_putnbr(int n)
 	ft_putchar(nb % 10 + '0');
 }
 
+void	test_special_printf()
+{
+	printf("|%04i|\n", 43);
+	printf("|%05i|\n", 43);
+	printf("|%04i|\n", -43);
+	printf("|%+05i|\n", 43);
+	printf("oooooo |%+04i|\n", -42);
+	printf("oooooo |%+04d|\n", 42);
+	printf("|%p|\n", 0);
+	printf("|%x|\n", 0);
+	printf("salut |%d| ceci est un |% 09i| test |%+ 8u| ouloulou\n", 1567, -9874, -94);
+}
+
 void	test_special()
 {
 	ft_printf("|%04i|\n", 43);
-	printf("|%04i|\n", 43);
 	ft_printf("|%05i|\n", 43);
-	printf("|%05i|\n", 43);
 	ft_printf("|%04i|\n", -43);
-	printf("|%04i|\n", -43);
 	ft_printf("|%+05i|\n", 43);
-	printf("|%+05i|\n", 43);
+	ft_printf("oooooo |%+04i|\n", -42);
+	ft_printf("oooooo |%+04d|\n", 42);
+	ft_printf("|%p|\n", 0);
+	ft_printf("|%x|\n", 0);
+	ft_printf("salut |%d| ceci est un |% 09i| test |%+ 8u| ouloulou\n", 1567, -9874, -94);
 }
 
 void	test_width_printf_moretest()
