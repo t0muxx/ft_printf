@@ -6,9 +6,37 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 08:29:13 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 09:28:43 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void	ft_putstr(char const *s)
+{
+	write(1, s, ft_strlen(s));
+}
+
+void	ft_putendl(char const *s)
+{
+	ft_putstr(s);
+	write(1, "\n", 1);
+}
+
+void	ft_putnbr(int n)
+{
+	long nb;
+
+	nb = (long)n;
+	if (nb < 0)
+	{
+		nb = nb * -1;
+		ft_putchar('-');
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar(nb % 10 + '0');
+}
 
 void	test_width_printf_moretest()
 {
