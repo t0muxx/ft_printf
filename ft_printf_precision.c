@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 10:08:03 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/16 10:07:22 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/16 11:28:12 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_printf_precision(t_parsed_opt *opt)
 {
 	char	*temp;
 	int		isneg;
-	char	sign;
+	char	sign[2];
 
 	isneg = FALSE;
 	//printf("++++|%d|+++++ %d %s\n", opt->in_precision, __LINE__, __FILE__);
@@ -25,7 +25,7 @@ void	ft_printf_precision(t_parsed_opt *opt)
 	{
 		if (opt->str_arg[0] == '-' || opt->str_arg[0] == '+')
 		{
-			sign = opt->str_arg[0];
+			sign[0] = opt->str_arg[0];
 			temp = opt->str_arg;
 			opt->str_arg = ft_strsub(opt->str_arg, 1, ft_strlen(opt->str_arg));
 			free(temp);
@@ -36,7 +36,8 @@ void	ft_printf_precision(t_parsed_opt *opt)
 				free(temp);
 			}
 			temp = opt->str_arg;
-			opt->str_arg = ft_strjoin(&sign, opt->str_arg);
+			sign[1] = '\0';
+			opt->str_arg = ft_strjoin(sign, opt->str_arg);
 			free(temp);
 		}
 		else
