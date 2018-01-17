@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 17:05:53 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/17 08:45:17 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ void	ft_conv_char(t_parsed_opt *opt, va_list curr_arg);
 void	ft_conv_str(t_parsed_opt *opt, va_list curr_arg);
 void	ft_printf_precision(t_parsed_opt *opt);
 void	ft_printf_str_precision(t_parsed_opt *opt);
+void	ft_printf_wcstr_precision(t_parsed_opt *opt);
 void	ft_printf_width(t_parsed_opt *opt);
 void	ft_printf_cwidth(t_parsed_opt *opt);
+void	ft_printf_wcstr_width(t_parsed_opt *opt);
 void	ft_printf_num_manage_flag(t_parsed_opt *opt);
 int		ft_printf_flag_strarg_isnega(t_parsed_opt *opt);
 void	ft_printf_num_sharp(t_parsed_opt *opt);

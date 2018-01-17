@@ -6,7 +6,7 @@
 #    By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/09 15:05:31 by tomlulu           #+#    #+#              #
-#    Updated: 2018/01/16 16:29:06 by tmaraval         ###   ########.fr        #
+#    Updated: 2018/01/17 08:40:19 by tmaraval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,9 @@ SRC = 	ft_printf.c \
 		libft/ft_strupcase.c \
 		libft/ft_tolower.c \
 		libft/ft_toupper.c \
+		libft/ft_wcstrlen.c \
+		libft/ft_wcstrsub.c \
+		libft/ft_wcstrjoin.c 
 
 
 OBJ	= $(SRC:.c=.o)

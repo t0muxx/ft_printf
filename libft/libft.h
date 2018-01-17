@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:36:27 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/07 21:17:43 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/17 08:44:45 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,4 +167,11 @@ int					ft_str_is_lowercase(const char *s);
 char				*ft_strrev(char *str);
 
 char				*ft_itoa_base(int nb, int base);
+
+size_t				ft_wcstrlen(const wchar_t *s);
+
+wchar_t				*ft_wcstrsub(wchar_t const *s, unsigned int start,
+size_t len);
+
+wchar_t				*ft_wcstrjoin(wchar_t const *s1, wchar_t const *s2);
 #endif

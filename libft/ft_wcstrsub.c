@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_str.c                                      :+:      :+:    :+:   */
+/*   ft_wcstrsub.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/16 15:59:46 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 08:37:13 by tmaraval         ###   ########.fr       */
+/*   Created: 2018/01/17 08:24:32 by tmaraval          #+#    #+#             */
+/*   Updated: 2018/01/17 08:31:43 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_conv_str(t_parsed_opt *opt, va_list curr_arg)
+wchar_t		*ft_wcstrsub(wchar_t const *s, unsigned int start, size_t len)
 {
-	if (opt->bin_lenmod & LENMOD_L || opt->ch_convert == 'S')
+	wchar_t	*s1;
+	size_t	i;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	if ((s1 = malloc(sizeof(wchar_t) * (len + 1))) == NULL)
+		return (NULL);
+	while (s[i] && i < len)
 	{
-		opt->wstr_arg = (wchar_t *)va_arg(curr_arg, wchar_t *);
-		opt->wstr_arg = ft_wcstrsub(opt->wstr_arg, 0, ft_wcstrlen(opt->wstr_arg));
+		s1[i] = s[start + i];
+		i++;
 	}
-	else
-		opt->str_arg = ft_strdup((char *)va_arg(curr_arg, char *));
+	s1[i] = '\0';
+	return (s1);
 }
