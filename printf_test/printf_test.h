@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:25:45 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 11:37:05 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/17 11:04:43 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 
 void	test_fuzz_opt();
 void	test_big_width_prec_argnbr();

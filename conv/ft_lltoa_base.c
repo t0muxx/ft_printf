@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 08:14:11 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/14 10:57:46 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/17 11:18:52 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_llcnt_digit(long long nb, int base)
 	return (cnt);
 }
 
-char	*ft_lltoa_cpy(long long nb, int base, int sign)
+char	*ft_lltoa_cpy(unsigned long long nb, int base, int sign)
 {
 	int		i;
 	char	*ret;
@@ -53,16 +53,19 @@ char	*ft_lltoa_base(long long nb, int base)
 {
 	int		sign;
 	char	*ret;
+	unsigned long long n;
 
 	sign = (nb < 0);
 	if (sign == 1 && base == 10)
-		nb = nb * -1;
+		n = (unsigned long long)(nb * -1);
+	else
+		n = nb;
 	if (nb == 0)
 	{
 		ret = ft_memalloc(2);
 		ret[0] = '0';
 		return (ret);
 	}
-	ret = ft_lltoa_cpy(nb, base, sign);
+	ret = ft_lltoa_cpy(n, base, sign);
 	return (ret);
 }

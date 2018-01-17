@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 15:45:50 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/17 09:30:33 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,19 @@ void	test_char_printf()
 	printf("|%05.5c|\n", 'e');
 	printf("|%05.5c|\n", 265);
 	printf("|%lc|\n", 137);
+	printf("|%s|\n", "test");
+	printf("|%s|\n", "");
+	printf("|%09s|\n", "test");
+	printf("|%-9s|\n", "test");
+	printf("|%-09s|\n", "test");
+	printf("|% 9s|\n", "test");
+	printf("|%.2s|\n", "test");
+	printf("|%9.2s|\n", "test");
+	printf("|%-9.2s|\n", "test");
+	printf("|%ls|\n", L"tést");
+	printf("|%-6ls|\n", L"tést");
+	printf("|%6ls|\n", L"tést");
+	printf("|%.2S|\n", L"tést\0");
 }
 
 void	test_char()
@@ -59,6 +72,19 @@ void	test_char()
 	ft_printf("|%05.5c|\n", 'e');
 	ft_printf("|%05.5c|\n", 265);
 	ft_printf("|%lc|\n", 137);
+	ft_printf("|%s|\n", "test");
+	ft_printf("|%s|\n", "");
+	ft_printf("|%09s|\n", "test");
+	ft_printf("|%-9s|\n", "test");
+	ft_printf("|%-09s|\n", "test");
+	ft_printf("|% 9s|\n", "test");
+	ft_printf("|%.2s|\n", "test");
+	ft_printf("|%9.2s|\n", "test");
+	ft_printf("|%-9.2s|\n", "test");
+	ft_printf("|%ls|\n", L"tést");
+	ft_printf("|%-6ls|\n", L"tést");
+	ft_printf("|%6ls|\n", L"tést");
+	ft_printf("|%.2S|\n", L"tést\0");
 }
 
 void	test_special_printf()
@@ -521,6 +547,7 @@ void	test_precision()
 	j = 0;
 	int k;
 	k = 0;
+	int ret = 0;
 	char str[100];
 	while (j < 45)
 	{
@@ -541,7 +568,9 @@ void	test_precision()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
-				ft_printf(str, tab[i]);
+				ret = ft_printf(str, tab[i]);
+				ft_putnbr(ret);
+				ft_putendl("");
 				k++;
 			}
 			i++;
@@ -565,6 +594,9 @@ void	test_precision_printf()
 	j = 0;
 	int k;
 	k = 0;
+	int ret;
+
+	ret = 0;
 	char str[100];
 	while (j < 45)
 	{
@@ -581,7 +613,8 @@ void	test_precision_printf()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
-				printf(str, tab[i]);
+				ret = printf(str, tab[i]);
+				printf("%d\n", ret);
 				k++;
 			}
 			i++;

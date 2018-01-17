@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:57:07 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 15:20:20 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/17 09:25:56 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int 	ft_printf(const char *format, ...)
 	{
 //		va_copy(start_arg, first_arg);
 		ret += ft_printf_print_until_perc(&p_format);
+	//	printf("\n++++|%d|+++++ %d %s\n", ret, __LINE__, __FILE__);
 		if (*p_format == '%')
 		{
 			ft_parser_init_t_parsed_opt(&opt);
 			ret += ft_parser(&opt, &p_format, curr_arg);
-		//	ft_printf_print_opt(opt);
 		}
 	}
 	va_end(curr_arg);

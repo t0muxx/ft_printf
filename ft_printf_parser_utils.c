@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:27:58 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/15 08:58:34 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/17 10:43:15 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@ int		ft_parser_managepercent(char **format)
 
 	begin = *format;
 	begin++;
+	//printf("\n++++|%c|+++++ %d %s\n", *begin, __LINE__, __FILE__);
+	while (*begin == ' ')
+	{
+		begin++;
+	}
 	if (*begin == '%')
 	{
-		(*format)++;
-		(*format)++;
-		ft_putchar('%');
+		*format = begin;
+		write(1, "%", 1);
 		return (1);
 	}
 	return (0);

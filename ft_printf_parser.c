@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/17 09:08:51 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/17 11:36:09 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,20 @@ int		ft_parser(t_parsed_opt *opt, char **format,
 va_list curr_arg)
 {
 	char	*begin;
+	int		ret;
 
+	ret = 0;
 	begin = *format;
 	if (ft_parser_managepercent(format) == 1)
+	{
+		(*format)++;
 		return (1);
+	}
 	(*format)++;
+	if (**format == 0)
+		return (0);
 	begin = *format;
 	ft_parser_manage_argnbr(format, begin, opt);
-
 	ft_parser_manage_flag(format, opt);
 	ft_parser_manage_width(format, opt);
 	ft_parser_manage_prec(format, opt);
@@ -100,12 +106,6 @@ va_list curr_arg)
 	else
 		opt->ch_convert = -1;
 	ft_parser_manage_base(opt);
-	ft_conv(opt, curr_arg);
-	if (opt->str_arg != NULL && opt->ch_convert != 'S')
-	{
-		//printf("\n++++|%c|+++++ %d %s\n", opt->ch_convert, __LINE__, __FILE__);
-		write(1, opt->str_arg, ft_strlen(opt->str_arg));
-		free(opt->str_arg);
-	}
-	return (0);
+	ret = ft_conv(opt, curr_arg);
+	return (ret);
 }

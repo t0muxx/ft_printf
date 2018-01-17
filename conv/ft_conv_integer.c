@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:22:35 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/16 10:36:40 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/17 11:21:56 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,16 @@ int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg)
 			opt->str_arg = ft_lltoa_base((long long)va_arg(curr_arg, long long), 10);
 		if (opt->ch_convert == 'u')
 			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 10);
-		if (opt->ch_convert == 'x' || opt->ch_convert == 'X')
+		if (opt->ch_convert == 'U')
+			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned long), 10);
+		if (opt->ch_convert == 'x')
 			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 16);
-		if (opt->ch_convert == 'o' || opt->ch_convert == 'O')
+		if (opt->ch_convert == 'X')
+			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned long), 16);
+		if (opt->ch_convert == 'o')
 			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 8);
+		if (opt->ch_convert == 'O')
+			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned long), 8);
 		if (opt->ch_convert == 'p')
 			opt->str_arg = ft_lltoa_base((long long)va_arg(curr_arg, void *), 16);
 	}
