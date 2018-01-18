@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 14:33:16 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 10:48:36 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
 		if (opt->ch_convert == 'X')
 			ft_strupcase(opt->str_arg);
 	}
-	if (ft_strchr("cC", opt->ch_convert))
+	if (ft_strchr("cC%", opt->ch_convert))
 	{
 		ft_conv_char(opt, curr_arg);
 		ft_printf_cwidth(opt);

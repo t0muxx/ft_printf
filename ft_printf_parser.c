@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/17 11:36:09 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 09:17:41 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,9 @@ va_list curr_arg)
 	ft_parser_manage_flag(format, opt);
 	ft_parser_manage_width(format, opt);
 	ft_parser_manage_prec(format, opt);
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_lenmod(format, opt);
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	if (ft_strchr(AVAILABLE_CONV, **format))
 	{
 		opt->ch_convert = **format;
@@ -106,6 +108,8 @@ va_list curr_arg)
 	else
 		opt->ch_convert = -1;
 	ft_parser_manage_base(opt);
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
+//	printf("\n++++|%c|+++++ %d %s\n", opt->ch_convert, __LINE__, __FILE__);
 	ret = ft_conv(opt, curr_arg);
 	return (ret);
 }

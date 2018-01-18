@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 10:08:03 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/16 11:28:12 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 11:52:05 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_printf_precision(t_parsed_opt *opt)
 	char	sign[2];
 
 	isneg = FALSE;
-	//printf("++++|%d|+++++ %d %s\n", opt->in_precision, __LINE__, __FILE__);
+	//printf("++++|%s|+++++ %d %s\n", opt->in_precision, __LINE__, __FILE__);
 	//printf("++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
-	if (ft_strchr("oOxXdupi" ,opt->ch_convert) && opt->in_precision > 0)
+	if (ft_strchr("oOxXdupiDU" ,opt->ch_convert) && opt->in_precision > 0)
 	{
 		if (opt->str_arg[0] == '-' || opt->str_arg[0] == '+')
 		{
@@ -50,16 +50,14 @@ void	ft_printf_precision(t_parsed_opt *opt)
 			}
 		}
 	}
+//	printf("++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 	/* On affiche pas le 0 dans ces deux cas */
-	if (opt->bin_flag != 0 || (opt->in_precision == 0))
+	if (opt->in_precision == 0 && !(opt->bin_flag & FLG_SHARP) && ft_strcmp("0", opt->str_arg) == 0)
 	{
-		if (opt->in_precision <= 0 && ft_strcmp(opt->str_arg, "0") == 0
-		&& ft_strchr("xXidiu", opt->ch_convert))
-		{
-			ft_strcpy(opt->str_arg, "\0");
-		}
-		if (opt->in_precision <= 0 && ft_strcmp(opt->str_arg, "0") == 0
-		&& ft_strchr("oO", opt->ch_convert) && ((opt->bin_flag & FLG_SHARP) == 0))
-			ft_strcpy(opt->str_arg, "\0");
+		opt->str_arg[0] = '\0';
 	}
+	else if ((opt->bin_flag & FLG_SHARP) && !(ft_strchr("oO", opt->ch_convert))
+	&& opt->in_precision == 0 && ft_strcmp("0", opt->str_arg) == 0 )
+		opt->str_arg[0] = '\0';
+//	printf("++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 }

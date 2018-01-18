@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 11:21:31 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 09:02:49 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 # define LENMOD_J	16
 # define LENMOD_Z	32
 
-# define AVAILABLE_CONV "sSpcCoOxXdDiuU"
+# define AVAILABLE_CONV "sSpcCoOxXdDiuU%"
 
 typedef	struct 	s_parsed_opt
 {

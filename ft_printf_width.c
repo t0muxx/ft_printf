@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 14:39:10 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/16 11:23:41 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 11:58:47 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	ft_printf_width(t_parsed_opt *opt)
 			opt->in_precision = opt->in_width - 1;
 			opt->in_width = 0;
 			ft_printf_precision(opt);
+		}
+		else if (opt->in_precision == -1 && (opt->bin_flag & FLG_ZERO) && ft_strcmp("0", opt->str_arg) == 0)
+		{
+			;
 		}
 		else
 		{
