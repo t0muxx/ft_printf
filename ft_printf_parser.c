@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:10:56 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/18 09:17:41 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/19 11:36:42 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt)
 	opt->in_argnbr = 0;
 	opt->in_base = 0;
 	opt->str_arg = NULL;
+	opt->ch_ch = -128;
 }
 
 void	ft_parser_manage_base(t_parsed_opt *opt)
@@ -84,6 +85,7 @@ va_list curr_arg)
 
 	ret = 0;
 	begin = *format;
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	if (ft_parser_managepercent(format) == 1)
 	{
 		(*format)++;
@@ -96,20 +98,22 @@ va_list curr_arg)
 	ft_parser_manage_argnbr(format, begin, opt);
 	ft_parser_manage_flag(format, opt);
 	ft_parser_manage_width(format, opt);
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_prec(format, opt);
 //	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_lenmod(format, opt);
 //	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
-	if (ft_strchr(AVAILABLE_CONV, **format))
+	if (ft_strchr(AVAILABLE_CONV, **format) && **format != 0)
 	{
+//		printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 		opt->ch_convert = **format;
 		(*format)++;
 	}
 	else
 		opt->ch_convert = -1;
+//	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	ft_parser_manage_base(opt);
 //	printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
-//	printf("\n++++|%c|+++++ %d %s\n", opt->ch_convert, __LINE__, __FILE__);
 	ret = ft_conv(opt, curr_arg);
 	return (ret);
 }

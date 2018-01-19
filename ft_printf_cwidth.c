@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:11:26 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 08:52:44 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/19 11:04:05 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ void	ft_printf_cwidth(t_parsed_opt *opt)
 	char *temp;
 
 	//printf("\n++++|%d|+++++ %d %s\n", opt->in_width, __LINE__, __FILE__);
-	while (ft_strlen(opt->str_arg) < (size_t)opt->in_width)
+	if (opt->ch_convert == 'c' && opt->str_arg[0] == '\0')
+		opt->in_width -= 1;
+	while ((int)ft_strlen(opt->str_arg) < opt->in_width)
 	{
 		temp = opt->str_arg;
 		if (opt->bin_flag & FLG_ZERO && (opt->bin_flag & FLG_MINUS) == 0)

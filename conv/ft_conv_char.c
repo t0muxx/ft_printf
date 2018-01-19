@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 14:11:08 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/18 09:03:48 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/19 11:28:49 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ void	ft_conv_char(t_parsed_opt *opt, va_list curr_arg)
 		opt->str_arg[0] = '%';
 	else
 		opt->str_arg[0] = (char)va_arg(curr_arg, int);
+	if (opt->str_arg[0] == '\0')
+		opt->ch_ch = opt->str_arg[0];
 
 }

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:22:35 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/18 14:17:10 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/19 11:01:57 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_conv_int_arg_wlenmod(t_parsed_opt *opt, va_list curr_arg)
 
 int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg)
 {
-	if (opt->bin_lenmod)
+	if (opt->bin_lenmod && !ft_strchr("DU", opt->ch_convert))
 		ft_conv_int_arg_wlenmod(opt, curr_arg);
 	else
 	{
@@ -78,7 +78,7 @@ int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg)
 		if (opt->ch_convert == 'x')
 			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 16);
 		if (opt->ch_convert == 'X')
-			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned long), 16);
+			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 16);
 		if (opt->ch_convert == 'o')
 			opt->str_arg = ft_ulltoa_base((unsigned long long)va_arg(curr_arg, unsigned int), 8);
 		if (opt->ch_convert == 'O')

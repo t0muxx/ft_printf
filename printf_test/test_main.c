@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/18 15:09:24 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/19 11:32:12 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,54 @@ int	main(int argc, char **argv)
 		test_big_width_prec_argnbr();
 	if (atoi(argv[1]) == 5)
 	{
-		printf("|%04i|\n", -43);
-		printf("|%+05i|\n", 43);
-		ft_printf("|%04i|\n", -43);
-		ft_printf("|%+05i|\n", 43);
-		printf("|%p|\n", 0);
-		ft_printf("|%p|\n", 0);
-
+	/*	ft_printf("|%X|\n", -42);
+		printf("|%X|\n", -42);
+		ft_printf("|%X|\n", 4294967296);
+		printf("|%X|\n", 4294967296);
+		ft_printf("|%#08x|\n", 42);
+		printf("|%#08x|\n", 42);
+		ft_printf("@moulitest: |%5.x| |%5.0x|\n", 0, 0);
+		printf("@moulitest: |%5.x| |%5.0x|\n", 0, 0);
+		ft_printf("|%-+12.10lx|\n", 42);
+		printf("|%-+12.10lx|\n", 42);
+		ft_printf("|%.0lld|\n", 0);
+		printf("|%.0lld|\n", 0);
+		ft_printf("|%.2c|\n", NULL);
+		printf("|%.2c|\n", NULL);
+		ft_printf("@moulitest: |%c|\n", 0);
+		printf("@moulitest: |%c|\n", 0);
+		ft_printf("|%2c|\n", 0);
+		printf("|%2c|\n", 0);
+		ft_printf("null |%c| and text\n", 0);
+		printf("null |%c| and text\n", 0);
+		ft_printf("|% c|\n", 0);
+		printf("|% c|\n", 0);
+		ft_printf("@moulitest: |%5.o| |%5.0o|\n", 0, 0);
+		printf("@moulitest: |%5.o| |%5.0o|\n", 0, 0);
+		ft_printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+		printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+		ft_printf("@moulitest: |%.d| |%.0d|\n", 42, 43);
+		printf("@moulitest: |%.d| |%.0d|\n", 42, 43);
+		ft_printf("@moulitest: |%5.d| |%5.0d|\n", 0, 0);
+		printf("@moulitest: |%5.d| |%5.0d|\n", 0, 0);
+		ft_printf("|%hU|\n", 4294967296);
+		printf("|%hU|\n", 4294967296);
+		ft_printf("%d\n", 0);
+		ft_printf("%hd\n", 0);
+		ft_printf("%hhd\n", 0);
+		ft_printf("%ld\n", 0);
+		ft_printf("%lld\n", 0);
+		printf("%d\n", 0);
+		printf("%hd\n", 0);
+		printf("%hhd\n", 0);
+		printf("%ld\n", 0);
+		printf("%lld\n", 0);*/
+	/*	ret = ft_printf("|%2c|\n", 0);
+		printf("%d\n", ret);
+		ret = printf("|%2c|\n", 0);
+		printf("%d\n", ret);*/
+		ft_printf("% ");
+		printf("% ");
 	}
 	if (atoi(argv[1]) == 6)
 		test_precision_printf();

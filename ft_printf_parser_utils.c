@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:27:58 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/18 11:48:48 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/19 10:39:10 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		ft_parser_read_int_upd_str(char **format)
 	int ret;
 	int isnega;
 
+	ret = 0;
 	isnega = FALSE;
 	if (**format == '-')
 	{
@@ -44,8 +45,11 @@ int		ft_parser_read_int_upd_str(char **format)
 		ret = **format - '0';
 		isnega = TRUE;
 	}
-	else
+	else if (ft_isdigit(**format))
 		ret = **format - '0';
+	else
+		return (0);
+	//printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	(*format)++;
 	while (ft_isdigit(**format))
 	{
@@ -58,6 +62,7 @@ int		ft_parser_read_int_upd_str(char **format)
 		}
 		(*format)++;
 	}
+	//printf("\n++++|%c|+++++ %d %s\n", **format, __LINE__, __FILE__);
 	if (isnega == TRUE)
 		ret *= -1;
 	return (ret);
@@ -109,35 +114,11 @@ void	ft_parser_manage_width(char **format, t_parsed_opt *opt)
 	int nbr;
 
 	nbr = 0;
-	// Gestion du flag * et & //////////////////////////////
-	if (**format == '*')
+
+	// ///////////////// /////////////////////////////
+	if (ft_isdigit(**format))
 	{
-		(*format)++;
-		if (ft_isdigit(**format))
-		{
-			nbr = ft_parser_read_int_upd_str(format);
-			//printf("\n++++|%d|+++++ %d %s\n", nbr, __LINE__, __FILE__);
-			if (**format == '$')
-			{
-				(*format)++;
-				while (nbr > 0)
-				{
-				//	printf("\n++++|%d|+++++ %d %s\n", nbr, __LINE__, __FILE__);
-					opt->in_width = 0;
-					nbr--;
-				}
-			}
-		}
-		else
-			opt->in_width = 0;
-	}
-	else
-	{
-		// ///////////////// //////////////////////////////
-		if (ft_isdigit(**format))
-		{
-			nbr = ft_parser_read_int_upd_str(format);
-			opt->in_width = nbr;
-		}
+		nbr = ft_parser_read_int_upd_str(format);
+		opt->in_width = nbr;
 	}
 }

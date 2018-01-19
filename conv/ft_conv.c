@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/18 14:16:52 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/19 11:39:36 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
 	if (ft_strchr("oOxXdDuUpi", opt->ch_convert))
 	{
 		ft_conv_integer(opt, curr_arg);
+		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		ft_printf_num_manage_flag(opt);
+		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		ft_printf_precision(opt);
+		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		ft_printf_width(opt);
+		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		if (opt->ch_convert == 'X')
 			ft_strupcase(opt->str_arg);
 	}
@@ -50,13 +54,25 @@ int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
 			write(1, &opt->wstr_arg[i], 1);
 			i++;
 		}
+		free(opt->wstr_arg);
 	}
 	else
 	{
 		if (opt->str_arg != NULL && opt->ch_convert != 'S')
 		{
-			if (opt->str_arg[0] == 0 && (opt->ch_convert == 'c' || opt->ch_convert == 'C'))
-				return (1);
+			if ((opt->ch_convert == 'c' || opt->ch_convert == 'C'))
+			{
+				if (opt->ch_ch == 0)
+				{
+					write(1, opt->str_arg, ft_strlen(opt->str_arg) + 1);
+					return (ft_strlen(opt->str_arg) + 1);
+				}
+				else
+				{
+					write(1, opt->str_arg, ft_strlen(opt->str_arg));
+					return (ft_strlen(opt->str_arg));
+				}
+			}
 			ret = (int)ft_strlen(opt->str_arg);
 			write(1, opt->str_arg, ft_strlen(opt->str_arg));
 			free(opt->str_arg);

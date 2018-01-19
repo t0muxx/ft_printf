@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 10:08:03 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/18 15:04:04 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/19 10:51:41 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ void	ft_printf_precision(t_parsed_opt *opt)
 //	printf("++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 	/* On affiche pas le 0 dans ces deux cas */
 	if (opt->in_precision == 0 && !(opt->bin_flag & FLG_SHARP) && ft_strcmp("0", opt->str_arg) == 0)
-	{
 		opt->str_arg[0] = '\0';
-	}
 	else if ((opt->bin_flag & FLG_SHARP) && !(ft_strchr("oO", opt->ch_convert))
 	&& opt->in_precision == 0 && ft_strcmp("0", opt->str_arg) == 0 )
 		opt->str_arg[0] = '\0';

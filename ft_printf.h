@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:34:47 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/18 14:51:54 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/19 11:28:37 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef	struct 	s_parsed_opt
 	char			*str_arg;
 	wchar_t			*wstr_arg;
 	int				in_base;
-
+	char			ch_ch;
 }				t_parsed_opt;
 
 void	ft_parser_init_t_parsed_opt(t_parsed_opt *opt);
