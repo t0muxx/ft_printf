@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 09:39:16 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 09:30:33 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 15:01:54 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -568,6 +568,7 @@ void	test_precision()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
+				ft_putstr(str);
 				ret = ft_printf(str, tab[i]);
 				ft_putnbr(ret);
 				ft_putendl("");
@@ -613,6 +614,7 @@ void	test_precision_printf()
 				strcat(str, tab2[j]);
 				strcat(str, tab3[k]);
 				strcat(str, "\n");
+				printf("%s", str);
 				ret = printf(str, tab[i]);
 				printf("%d\n", ret);
 				k++;

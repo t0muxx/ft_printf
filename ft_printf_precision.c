@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 10:08:03 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/18 11:52:05 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 15:04:04 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	ft_printf_precision(t_parsed_opt *opt)
 {
 	char	*temp;
-	int		isneg;
 	char	sign[2];
 
-	isneg = FALSE;
 	//printf("++++|%s|+++++ %d %s\n", opt->in_precision, __LINE__, __FILE__);
 	//printf("++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 	if (ft_strchr("oOxXdupiDU" ,opt->ch_convert) && opt->in_precision > 0)
@@ -42,7 +40,7 @@ void	ft_printf_precision(t_parsed_opt *opt)
 		}
 		else
 		{
-			while (ft_strlen(opt->str_arg) < (size_t)opt->in_precision)
+			while ((int)ft_strlen(opt->str_arg) < opt->in_precision)
 			{
 				temp = opt->str_arg;
 				opt->str_arg = ft_strjoin("0", opt->str_arg);

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/18 10:48:36 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 14:16:52 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
 {
 	int i;
 	int ret;
-	char t;
 
 	i = 0;
 	ret = 0;
@@ -48,7 +47,6 @@ int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
 		ret = (int)ft_wcstrlen(opt->wstr_arg);
 		while (opt->wstr_arg[i])
 		{
-			t = (char)opt->wstr_arg[i];
 			write(1, &opt->wstr_arg[i], 1);
 			i++;
 		}

@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:22:35 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 11:21:56 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/18 14:17:10 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,6 @@ int		ft_conv_int_arg(t_parsed_opt *opt, va_list curr_arg)
 
 int		ft_conv_integer(t_parsed_opt *opt, va_list curr_arg)
 {
-	char *temp;
-	char *begin;
-
-	temp = NULL;
-	begin = NULL;
 	ft_conv_int_arg(opt, curr_arg);
 	return (0);
 }
