@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:57:07 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 09:25:56 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/20 14:47:33 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_printf_print_until_perc(char **format)
 	return (len + 1);
 }
 
-int 	ft_printf(const char *format, ...)
+int 	ft_printf(const char * restrict format, ...)
 {
 	va_list			curr_arg;
 	char			*p_format;
