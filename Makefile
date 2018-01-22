@@ -6,7 +6,7 @@
 #    By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/09 15:05:31 by tomlulu           #+#    #+#              #
-#    Updated: 2018/01/17 08:40:19 by tmaraval         ###   ########.fr        #
+#    Updated: 2018/01/22 17:24:26 by tomlulu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ SRC = 	ft_printf.c \
 		libft/ft_toupper.c \
 		libft/ft_wcstrlen.c \
 		libft/ft_wcstrsub.c \
-		libft/ft_wcstrjoin.c 
+		libft/ft_wcstrjoin.c
 
 
 OBJ	= $(SRC:.c=.o)
@@ -108,7 +108,7 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 ./%.o: %.c
-	gcc -Wall -Wextra -Werror -g -c $< -o $@
+	gcc -g -c $< -o $@
 
 clean:
 	/bin/rm -f $(OBJ)

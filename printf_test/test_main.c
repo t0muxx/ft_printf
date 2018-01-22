@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 14:58:00 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/20 16:24:41 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/22 17:45:08 by tomlulu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	main(int argc, char **argv)
 		printf("%d\n", ret);
 		ret = printf("|%2c|\n", 0);
 		printf("%d\n", ret);*/
-		ft_printf("%ls\n", L"ڤ");
-		printf("%ls\n", L"ڤ");
+		ft_printf("|%-50ls|\n", L"ddڤ");
+	//	printf("|%ls|\n", L"ddڤ");
 	}
 	if (atoi(argv[1]) == 6)
 		test_precision_printf();
