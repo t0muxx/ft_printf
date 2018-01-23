@@ -6,11 +6,20 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:57:07 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/20 14:47:33 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/23 11:24:21 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_parser_do_parse(t_parsed_opt *opt, char *begin, char **format)
+{
+	ft_parser_manage_argnbr(format, begin, opt);
+	ft_parser_manage_flag(format, opt);
+	ft_parser_manage_width(format, opt);
+	ft_parser_manage_prec(format, opt);
+	ft_parser_manage_lenmod(format, opt);
+}
 
 int		ft_printf_print_until_perc(char **format)
 {
@@ -28,21 +37,19 @@ int		ft_printf_print_until_perc(char **format)
 	return (len + 1);
 }
 
-int 	ft_printf(const char * restrict format, ...)
+int		ft_printf(const char *restrict format, ...)
 {
 	va_list			curr_arg;
 	char			*p_format;
 	t_parsed_opt	opt;
-	int 			ret;
+	int				ret;
 
 	va_start(curr_arg, format);
 	p_format = (char *)format;
 	ret = 0;
 	while (*p_format)
 	{
-//		va_copy(start_arg, first_arg);
 		ret += ft_printf_print_until_perc(&p_format);
-	//	printf("\n++++|%d|+++++ %d %s\n", ret, __LINE__, __FILE__);
 		if (*p_format == '%')
 		{
 			ft_parser_init_t_parsed_opt(&opt);

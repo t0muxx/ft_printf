@@ -6,62 +6,47 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 14:31:40 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/11 15:12:21 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/23 11:41:10 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_print_opt(t_parsed_opt opt)
+void	ft_parser_read_int_upd_str_loop(char **format, int *ret)
 {
-	printf("argnbr : |%d|\n", opt.in_argnbr);
-	printf("in_width : |%d|\n", opt.in_width);
-	printf("in_precision : |%d|\n", opt.in_precision);
-	printf("ch_convert : |%c|\n", opt.ch_convert);
-	printf("opt->str_arg : |%s|\n", opt.str_arg);
-	printf("opt->in_base : |%d|\n", opt.in_base);
-	if (opt.bin_flag & FLG_SHARP)
+	while (ft_isdigit(**format))
 	{
-		printf("flag # trouve\n");
+		if (*ret > INT_MAX)
+			*ret = -1;
+		else
+		{
+			*ret *= 10;
+			*ret += **format - '0';
+		}
+		(*format)++;
 	}
-	if (opt.bin_flag & FLG_ZERO)
+}
+
+int		ft_parser_read_int_upd_str(char **format)
+{
+	int ret;
+	int isnega;
+
+	ret = 0;
+	isnega = FALSE;
+	if (**format == '-')
 	{
-		printf("flag 0 trouve\n");
+		(*format)++;
+		ret = **format - '0';
+		isnega = TRUE;
 	}
-	if (opt.bin_flag & FLG_MINUS)
-	{
-		printf("flag - trouve\n");
-	}
-	if (opt.bin_flag & FLG_SP)
-	{
-		printf("flag space trouve\n");
-	}
-	if (opt.bin_flag & FLG_PLUS)
-	{
-		printf("flag + trouve\n");
-	}
-	if (opt.bin_lenmod & LENMOD_H)
-	{
-		printf("len mod H\n");
-	}
-	if (opt.bin_lenmod & LENMOD_HH)
-	{
-		printf("len mod HH\n");
-	}
-	if (opt.bin_lenmod & LENMOD_L)
-	{
-		printf("len mod L\n");
-	}
-	if (opt.bin_lenmod & LENMOD_LL)
-	{
-		printf("len mod LL\n");
-	}
-	if (opt.bin_lenmod & LENMOD_J)
-	{
-		printf("len mod J\n");
-	}
-	if (opt.bin_lenmod & LENMOD_Z)
-	{
-		printf("len mod Z\n");
-	}
+	else if (ft_isdigit(**format))
+		ret = **format - '0';
+	else
+		return (0);
+	(*format)++;
+	ft_parser_read_int_upd_str_loop(format, &ret);
+	if (isnega == TRUE)
+		ret *= -1;
+	return (ret);
 }

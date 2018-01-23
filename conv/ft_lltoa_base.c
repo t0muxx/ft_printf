@@ -6,7 +6,7 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 08:14:11 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/17 11:18:52 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/23 10:35:53 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ char	*ft_lltoa_cpy(unsigned long long nb, int base, int sign)
 
 char	*ft_lltoa_base(long long nb, int base)
 {
-	int		sign;
-	char	*ret;
-	unsigned long long n;
+	int					sign;
+	char				*ret;
+	unsigned long long	n;
 
 	sign = (nb < 0);
 	if (sign == 1 && base == 10)

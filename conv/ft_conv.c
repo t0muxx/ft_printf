@@ -6,29 +6,48 @@
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:20 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/22 17:42:44 by tomlulu          ###   ########.fr       */
+/*   Updated: 2018/01/23 10:03:48 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
+int		ft_conv_do_print(t_parsed_opt *opt, va_list curr_arg)
 {
-	int i;
 	int ret;
 
-	i = 0;
-	ret = 0;
+	if (opt->str_arg != NULL)
+	{
+		if ((opt->ch_convert == 'c' || opt->ch_convert == 'C'))
+		{
+			if (opt->ch_ch == 0)
+			{
+				write(1, opt->str_arg, ft_strlen(opt->str_arg) + 1);
+				free(opt->str_arg);
+				return (ft_strlen(opt->str_arg) + 1);
+			}
+			else
+			{
+				write(1, opt->str_arg, ft_strlen(opt->str_arg));
+				free(opt->str_arg);
+				return (ft_strlen(opt->str_arg));
+			}
+		}
+		ret = (int)ft_strlen(opt->str_arg);
+		write(1, opt->str_arg, ft_strlen(opt->str_arg));
+		free(opt->str_arg);
+	}
+	return (ret);
+}
+
+void	ft_conv_do_conv(t_parsed_opt *opt, va_list curr_arg)
+{
 	if (ft_strchr("oOxXdDuUpi", opt->ch_convert))
 	{
 		ft_conv_integer(opt, curr_arg);
-		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		ft_printf_num_manage_flag(opt);
-		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		ft_printf_precision(opt);
-		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		ft_printf_width(opt);
-		//printf("\n++++|%s|+++++ %d %s\n", opt->str_arg, __LINE__, __FILE__);
 		if (opt->ch_convert == 'X')
 			ft_strupcase(opt->str_arg);
 	}
@@ -37,46 +56,40 @@ int		ft_conv(t_parsed_opt *opt, va_list curr_arg)
 		ft_conv_char(opt, curr_arg);
 		ft_printf_cwidth(opt);
 	}
-	if (ft_strchr("s", opt->ch_convert) && ((opt->bin_lenmod & LENMOD_L) == 0))
+	if (ft_strchr("sS", opt->ch_convert))
 	{
 		ft_conv_str(opt, curr_arg);
 		ft_printf_str_precision(opt);
 		ft_printf_cwidth(opt);
 	}
-	if (opt->ch_convert == 'S' || (opt->ch_convert == 's' && opt->bin_lenmod & LENMOD_L))
-	{
-		ft_conv_str(opt, curr_arg);
-		ft_printf_str_precision(opt);
-		ft_printf_cwidth(opt);
-		ret = (int)ft_strlen(opt->str_arg);
-		while (opt->str_arg[i])
-		{
-			write(1, &opt->str_arg[i], 1);
-			i++;
-		}
-		free(opt->str_arg);
-	}
+}
+
+int		ft_conv_do_noconvert(t_parsed_opt *opt, char **format)
+{
+	int ret;
+
+	opt->str_arg = ft_strsub(*format, 0, 1);
+	(*format)++;
+	ft_printf_cwidth(opt);
+	ret = (int)ft_strlen(opt->str_arg);
+	write(1, opt->str_arg, ft_strlen(opt->str_arg));
+	free(opt->str_arg);
+	return (ret);
+}
+
+int		ft_conv(t_parsed_opt *opt, va_list curr_arg, char **format)
+{
+	int i;
+	int ret;
+
+	i = 0;
+	ret = 0;
+	if (opt->ch_convert == -1)
+		ret = ft_conv_do_noconvert(opt, format);
 	else
 	{
-		if (opt->str_arg != NULL && opt->ch_convert != 'S')
-		{
-			if ((opt->ch_convert == 'c' || opt->ch_convert == 'C'))
-			{
-				if (opt->ch_ch == 0)
-				{
-					write(1, opt->str_arg, ft_strlen(opt->str_arg) + 1);
-					return (ft_strlen(opt->str_arg) + 1);
-				}
-				else
-				{
-					write(1, opt->str_arg, ft_strlen(opt->str_arg));
-					return (ft_strlen(opt->str_arg));
-				}
-			}
-			ret = (int)ft_strlen(opt->str_arg);
-			write(1, opt->str_arg, ft_strlen(opt->str_arg));
-			free(opt->str_arg);
-		}
+		ft_conv_do_conv(opt, curr_arg);
+		ret = ft_conv_do_print(opt, curr_arg);
 	}
 	return (ret);
 }
