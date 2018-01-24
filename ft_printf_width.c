@@ -6,7 +6,7 @@
 /*   By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 14:39:10 by tomlulu           #+#    #+#             */
-/*   Updated: 2018/01/23 12:43:31 by tmaraval         ###   ########.fr       */
+/*   Updated: 2018/01/24 08:19:34 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_printf_width_dosharp_zero(t_parsed_opt *opt)
 {
 	char *temp;
 
-	if (opt->bin_flag & FLG_SHARP && (opt->ch_convert == 'x' || opt->ch_convert == 'X'))
+	if (opt->bin_flag & FLG_SHARP && (opt->ch_convert == 'x'
+	|| opt->ch_convert == 'X'))
 	{
 		opt->in_width -= 2;
 		temp = opt->str_arg;
@@ -88,6 +89,9 @@ void	ft_printf_width_dolen0(t_parsed_opt *opt)
 			opt->str_arg = ft_strjoin(" ", opt->str_arg);
 			free(temp);
 		}
+	}
+	else
+		ft_printf_width_do(opt);
 }
 
 void	ft_printf_width(t_parsed_opt *opt)
@@ -100,34 +104,5 @@ void	ft_printf_width(t_parsed_opt *opt)
 		ft_printf_width_doit(opt);
 	}
 	if (opt->in_width > 0)
-	{
-		if (opt->str_arg[0] == '\0' || ft_strlen(opt->str_arg) == 0)
-		{
-			free(opt->str_arg);
-			opt->str_arg = ft_strdup(" ");
-			while ((int)ft_strlen(opt->str_arg) < opt->in_width)
-			{
-				temp = opt->str_arg;
-				opt->str_arg = ft_strjoin(" ", opt->str_arg);
-				free(temp);
-			}
-	}
-		else
-		{
-			while ((int)ft_strlen(opt->str_arg) < opt->in_width)
-			{
-				temp = opt->str_arg;
-				if (opt->bin_flag & FLG_MINUS)
-				{
-					opt->str_arg = ft_strjoin(opt->str_arg, " ");
-					free(temp);
-				}
-				else
-				{
-					opt->str_arg = ft_strjoin(" ", opt->str_arg);
-					free(temp);
-				}
-			}
-		}
-	}
+		ft_printf_width_dolen0(opt);
 }

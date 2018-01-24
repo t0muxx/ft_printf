@@ -6,7 +6,7 @@
 #    By: tomlulu <tomlulu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/09 15:05:31 by tomlulu           #+#    #+#              #
-#    Updated: 2018/01/23 09:38:43 by tmaraval         ###   ########.fr        #
+#    Updated: 2018/01/24 08:14:30 by tmaraval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = 	ft_printf.c \
 		ft_printf_precision.c \
 		ft_printf_str_precision.c \
 		ft_printf_width.c \
+		ft_printf_width_utils.c \
 		ft_printf_cwidth.c \
 		ft_printf_num_flag.c \
 		ft_printf_flag_utils.c \

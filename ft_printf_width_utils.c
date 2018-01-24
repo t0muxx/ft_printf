@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wcstrjoin.c                                     :+:      :+:    :+:   */
+/*   ft_printf_width_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaraval <tmaraval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/17 08:38:34 by tmaraval          #+#    #+#             */
-/*   Updated: 2018/01/24 08:20:55 by tmaraval         ###   ########.fr       */
+/*   Created: 2018/01/24 08:12:51 by tmaraval          #+#    #+#             */
+/*   Updated: 2018/01/24 08:15:06 by tmaraval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-wchar_t		*ft_wcstrjoin(wchar_t const *s1, wchar_t const *s2)
+void	ft_printf_width_do(t_parsed_opt *opt)
 {
-	wchar_t		*ret;
-	int			i;
-	int			j;
+	char *temp;
 
-	i = 0;
-	j = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	if ((ret =
-	malloc(sizeof(wchar_t) * (ft_wcstrlen(s1) + ft_wcstrlen(s2) + 1))) == NULL)
-		return (NULL);
-	while (s1[i])
+	while ((int)ft_strlen(opt->str_arg) < opt->in_width)
 	{
-		ret[i] = s1[i];
-		i++;
+		temp = opt->str_arg;
+		if (opt->bin_flag & FLG_MINUS)
+		{
+			opt->str_arg = ft_strjoin(opt->str_arg, " ");
+			free(temp);
+		}
+		else
+		{
+			opt->str_arg = ft_strjoin(" ", opt->str_arg);
+			free(temp);
+		}
 	}
-	while (s2[j])
-	{
-		ret[i + j] = s2[j];
-		j++;
-	}
-	ret[i + j] = '\0';
-	return (ret);
 }
